@@ -16,8 +16,6 @@
 	return [NSString stringWithFormat:@"%@%@",self.rankString,self.suit];
 }
 
--(void)setContents:(NSString *)contents {}
-
 -(NSUInteger)match:(NSArray *)otherCards {
 	int suitMatches = 0;
 	int rankMatches = 0;

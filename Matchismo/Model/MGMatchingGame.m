@@ -16,24 +16,9 @@
 
 @implementation MGMatchingGame
 
-//OVERRIDES
+#pragma mark OVERRIDES
 
-//INITIALIZERS
-
-//Designated initializer
--(id)initWithCardCount:(NSUInteger)count usingDeck:(MGDeck *)deck {
-	if (self = [super init]) {
-		for (int i=0; i<count; i++)
-			[self.cards addObject:[deck drawRandomCard]];
-	}
-	return self;
-}
-
-//GET/SET
--(NSMutableArray *)cards {
-	if (!_cards) _cards = [NSMutableArray new];
-	return _cards;
-}
+#pragma mark GET/SET
 
 -(NSMutableArray *)pastMoves {
 	if (!_pastMoves) _pastMoves = [NSMutableArray new];
@@ -54,7 +39,7 @@
 	return self.pastMoves[self.pastMoves.count-1-movesAgo];
 }
 
-//OTHER
+#pragma mark OTHER
 
 -(void)flipCardAtIndex:(NSUInteger)index {
 	MGCard* cardToFlip = self.cards[index];
@@ -110,10 +95,6 @@
 	} else {
 		[self.pastMoves addObject:[NSString stringWithFormat:@"Flipped up %@",cardToFlip.contents]];
 	}
-}
-
--(MGCard *)cardAtIndex:(NSUInteger)index {
-	return self.cards[index];
 }
 
 @end

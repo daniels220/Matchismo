@@ -7,13 +7,11 @@
 //
 
 #import "MGMatchingGame.h"
+#import "MGGame_Protected.h"
 
 @interface MGMatchingGame ()
 
-@property (strong,nonatomic) NSMutableArray* cards;
-
 @property (nonatomic,readwrite) NSUInteger numFlips;
-@property (nonatomic,readwrite) NSInteger score;
 @property (strong,nonatomic) NSMutableArray* pastMoves;
 
 @end
