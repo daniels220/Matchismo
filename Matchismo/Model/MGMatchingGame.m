@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Daniel Slomovits. All rights reserved.
 //
 
-#import "MGMatchingGame_Protected.h"
+#import "MGMatchingGame.h"
+#import "MGGame_Protected.h"
 #import "MGCard.h"
 #import "MGDeck.h"
 
@@ -14,36 +15,22 @@
 #define MISMATCH_PENALTY 2
 #define FLIP_COST 1
 
+#define WIN_BONUS 10
+
 @implementation MGMatchingGame
 
-#pragma mark OVERRIDES
-
-#pragma mark GET/SET
-
--(NSMutableArray *)pastMoves {
-	if (!_pastMoves) _pastMoves = [NSMutableArray new];
-	return _pastMoves;
+-(NSString *)typeString {
+	return @"Match";
 }
-
--(NSString *)lastMove {
-	return [self.pastMoves lastObject];
-}
-
--(NSInteger)numMoves {
-	return self.pastMoves.count;
-}
-
--(NSString *)movesAgo:(NSInteger)movesAgo {
-	if ((NSInteger)(self.pastMoves.count) - 1 - movesAgo < 0)
-		return nil;
-	return self.pastMoves[self.pastMoves.count-1-movesAgo];
-}
-
-#pragma mark OTHER
 
 -(void)flipCardAtIndex:(NSUInteger)index {
 	MGCard* cardToFlip = self.cards[index];
-	//Definitely going to flip a card somehow
+	
+	//Stop if we can't flip this card
+	if (cardToFlip.unplayable)
+		return;
+	
+	//If we can, we're going to
 	self.numFlips++;
 	
 	//If we're just flipping a card down, do nothing else
@@ -53,12 +40,8 @@
 	}
 	
 	//Find if another card is face up
-	MGCard* otherCard;
-	for (MGCard* card in self.cards)
-		if (card.faceUp  && !card.unplayable) {
-			otherCard = card;
-			break;
-		}
+	NSArray* otherCards = [self playableCards];
+	MGCard* otherCard = otherCards.count ? otherCards[0] : nil;
 	
 	//Flip this one face up no matter what
 	cardToFlip.faceUp = TRUE;
@@ -91,6 +74,32 @@
 			 [NSString stringWithFormat:@"%@ does not match %@, %d point penalty",
 				cardToFlip,otherCard,MISMATCH_PENALTY]];
 		}
+		
+		//Now check if the game is done in some form
+		NSArray* faceDown = [self faceDownCards];
+		//If there are no cards left, we're done (bonus score!)
+		if (faceDown.count == 0) {
+			self.score += WIN_BONUS;
+			self.gameState = DONE_STATE;
+		}
+		//If there are exactly two cards face-down and they don't match, we're stuck
+		else if (faceDown.count == 2 && ![faceDown[0] match:@[faceDown[1]]])
+				self.gameState = STUCK_STATE;
+		//If there are 4 cards face down, we just might be stuck too
+		else if (faceDown.count == 4 &&
+						 ![faceDown[0] match:@[faceDown[1]]] &&
+						 ![faceDown[0] match:@[faceDown[2]]] &&
+						 ![faceDown[0] match:@[faceDown[3]]] &&
+						 ![faceDown[1] match:@[faceDown[2]]] &&
+						 ![faceDown[1] match:@[faceDown[3]]] &&
+						 ![faceDown[2] match:@[faceDown[3]]])
+			self.gameState = STUCK_STATE;
+		
+		if (self.gameState == DONE_STATE || self.gameState == STUCK_STATE) {
+				[self.result endGameWithScore:self.score];
+				[self.result synchronize];
+		}
+			
 	//No other card was up, nothing interesting to do
 	} else {
 		[self.pastMoves addObject:[NSString stringWithFormat:@"Flipped up %@",cardToFlip.contents]];

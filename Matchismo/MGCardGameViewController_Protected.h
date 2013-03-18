@@ -6,18 +6,13 @@
 //  Copyright (c) 2013 Daniel Slomovits. All rights reserved.
 //
 
-#import "MGViewController.h"
+#import "MGCardGameViewController.h"
 @class MGGame;
 
-@interface MGViewController ()
-
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-
-- (IBAction)deal;
-
+@interface MGCardGameViewController ()
 
 @property (strong,nonatomic) MGGame* game;
-
 - (void) updateUI;
+- (IBAction)deal;
 
 @end

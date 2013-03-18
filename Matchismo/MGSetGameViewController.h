@@ -1,5 +1,5 @@
 //
-//  MGMatchingGameViewController.h
+//  MGSetGameViewController.h
 //  Matchismo
 //
 //  Created by Daniel Slomovits on 2/13/13.
@@ -8,6 +8,6 @@
 
 #import "MGCardGameViewController.h"
 
-@interface MGMatchingGameViewController : MGCardGameViewController
+@interface MGSetGameViewController : MGCardGameViewController
 
 @end

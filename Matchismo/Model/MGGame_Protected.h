@@ -11,6 +11,13 @@
 @interface MGGame ()
 
 @property (strong,nonatomic) NSMutableArray* cards;
+-(NSArray*)faceDownCards;
+-(NSArray*)playableCards;
 @property (nonatomic,readwrite) NSInteger score;
+@property (nonatomic,readwrite) NSUInteger numFlips;
+@property (strong,nonatomic,readwrite) MGGameResult* result;
+@property (nonatomic,readwrite) GameState gameState;
+
+@property (strong,nonatomic) NSMutableArray* pastMoves;
 
 @end

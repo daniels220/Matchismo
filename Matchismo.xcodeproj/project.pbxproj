@@ -8,6 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		65300C6B16C84603007D5923 /* CardBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65300C6A16C84603007D5923 /* CardBack.jpg */; };
+		6543B67C16CC901600010EF3 /* MGSetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B67B16CC901600010EF3 /* MGSetGameViewController.m */; };
+		6543B67F16CC906C00010EF3 /* MGSetDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B67E16CC906C00010EF3 /* MGSetDeck.m */; };
+		6543B68216CC95FF00010EF3 /* MGSetGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B68116CC95FF00010EF3 /* MGSetGame.m */; };
+		65644FB316F64250006EB4B0 /* MGPlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65644FB216F64250006EB4B0 /* MGPlayingCardView.m */; };
+		65644FCE16F650E9006EB4B0 /* J♠.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FB516F650E9006EB4B0 /* J♠.jpg */; };
+		65644FCF16F650E9006EB4B0 /* J♠@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FB616F650E9006EB4B0 /* J♠@2x.jpg */; };
+		65644FD016F650E9006EB4B0 /* J♣.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FB716F650E9006EB4B0 /* J♣.jpg */; };
+		65644FD116F650E9006EB4B0 /* J♣@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FB816F650E9006EB4B0 /* J♣@2x.jpg */; };
+		65644FD216F650E9006EB4B0 /* J♥.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FB916F650E9006EB4B0 /* J♥.jpg */; };
+		65644FD316F650E9006EB4B0 /* J♥@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBA16F650E9006EB4B0 /* J♥@2x.jpg */; };
+		65644FD416F650E9006EB4B0 /* J♦.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBB16F650E9006EB4B0 /* J♦.jpg */; };
+		65644FD516F650E9006EB4B0 /* J♦@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBC16F650E9006EB4B0 /* J♦@2x.jpg */; };
+		65644FD616F650E9006EB4B0 /* K♠.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBD16F650E9006EB4B0 /* K♠.jpg */; };
+		65644FD716F650E9006EB4B0 /* K♠@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBE16F650E9006EB4B0 /* K♠@2x.jpg */; };
+		65644FD816F650E9006EB4B0 /* K♣.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FBF16F650E9006EB4B0 /* K♣.jpg */; };
+		65644FD916F650E9006EB4B0 /* K♣@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC016F650E9006EB4B0 /* K♣@2x.jpg */; };
+		65644FDA16F650E9006EB4B0 /* K♥.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC116F650E9006EB4B0 /* K♥.jpg */; };
+		65644FDB16F650E9006EB4B0 /* K♥@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC216F650E9006EB4B0 /* K♥@2x.jpg */; };
+		65644FDC16F650E9006EB4B0 /* K♦.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC316F650E9006EB4B0 /* K♦.jpg */; };
+		65644FDD16F650E9006EB4B0 /* K♦@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC416F650E9006EB4B0 /* K♦@2x.jpg */; };
+		65644FDE16F650E9006EB4B0 /* Q♠.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC516F650E9006EB4B0 /* Q♠.jpg */; };
+		65644FDF16F650E9006EB4B0 /* Q♠@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC616F650E9006EB4B0 /* Q♠@2x.jpg */; };
+		65644FE016F650E9006EB4B0 /* Q♣.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC716F650E9006EB4B0 /* Q♣.jpg */; };
+		65644FE116F650E9006EB4B0 /* Q♣@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC816F650E9006EB4B0 /* Q♣@2x.jpg */; };
+		65644FE216F650E9006EB4B0 /* Q♥.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FC916F650E9006EB4B0 /* Q♥.jpg */; };
+		65644FE316F650E9006EB4B0 /* Q♥@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FCA16F650E9006EB4B0 /* Q♥@2x.jpg */; };
+		65644FE416F650E9006EB4B0 /* Q♦.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FCB16F650E9006EB4B0 /* Q♦.jpg */; };
+		65644FE516F650E9006EB4B0 /* Q♦@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65644FCC16F650E9006EB4B0 /* Q♦@2x.jpg */; };
+		65644FE616F650E9006EB4B0 /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 65644FCD16F650E9006EB4B0 /* cardback.png */; };
+		65644FE916F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65644FE816F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m */; };
+		6564500E16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6564500D16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m */; };
+		6564501116F6B52E006EB4B0 /* MGSetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6564501016F6B52E006EB4B0 /* MGSetCardView.m */; };
+		6577E30616DA83FF00E02F20 /* MGGameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30516DA83FF00E02F20 /* MGGameResult.m */; };
+		6577E30916DA8B3800E02F20 /* MGGameResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */; };
 		65CFB0C716C84BDC005DEEBE /* MGThreeCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */; };
 		65D4D23416CC63FA0073D34C /* MGGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23316CC63FA0073D34C /* MGGame.m */; };
 		65D4D23716CC642D0073D34C /* MGMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23616CC642D0073D34C /* MGMatchingGameViewController.m */; };
@@ -22,20 +56,63 @@
 		65E3CECC16C7109A00DDEA65 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E3CECB16C7109A00DDEA65 /* Default@2x.png */; };
 		65E3CECE16C7109A00DDEA65 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E3CECD16C7109A00DDEA65 /* Default-568h@2x.png */; };
 		65E3CED116C7109A00DDEA65 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E3CECF16C7109A00DDEA65 /* MainStoryboard.storyboard */; };
-		65E3CED416C7109A00DDEA65 /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CED316C7109A00DDEA65 /* MGViewController.m */; };
+		65E3CED416C7109A00DDEA65 /* MGCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CED316C7109A00DDEA65 /* MGCardGameViewController.m */; };
 		65E3CEDC16C710D900DDEA65 /* MGCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEDB16C710D900DDEA65 /* MGCard.m */; };
 		65E3CEE016C710F500DDEA65 /* MGDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEDF16C710F500DDEA65 /* MGDeck.m */; };
 		65E3CEE316C7110200DDEA65 /* MGPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE216C7110200DDEA65 /* MGPlayingCard.m */; };
 		65E3CEE616C7111500DDEA65 /* MGPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE516C7111500DDEA65 /* MGPlayingCardDeck.m */; };
 		65E3CEE916C7112E00DDEA65 /* MGMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */; };
+		65E90E0C16CD58F200A00FE1 /* greyPixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E90E0B16CD58F200A00FE1 /* greyPixel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		65300C6816C845AB007D5923 /* MGThreeCardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MGThreeCardMatchingGame.h; path = Model/MGThreeCardMatchingGame.h; sourceTree = "<group>"; };
 		65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MGThreeCardMatchingGame.m; path = Model/MGThreeCardMatchingGame.m; sourceTree = "<group>"; };
 		65300C6A16C84603007D5923 /* CardBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CardBack.jpg; sourceTree = "<group>"; };
-		65CFB0C816C84ECB005DEEBE /* MGMatchingGame_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGMatchingGame_Protected.h; path = Model/MGMatchingGame_Protected.h; sourceTree = "<group>"; };
-		65D4D22C16CC61210073D34C /* MGViewController_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController_Protected.h; sourceTree = "<group>"; };
+		6543B67A16CC901600010EF3 /* MGSetGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSetGameViewController.h; sourceTree = "<group>"; };
+		6543B67B16CC901600010EF3 /* MGSetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetGameViewController.m; sourceTree = "<group>"; };
+		6543B67D16CC906B00010EF3 /* MGSetDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSetDeck.h; path = Model/MGSetDeck.h; sourceTree = "<group>"; };
+		6543B67E16CC906C00010EF3 /* MGSetDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSetDeck.m; path = Model/MGSetDeck.m; sourceTree = "<group>"; };
+		6543B68016CC95FF00010EF3 /* MGSetGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSetGame.h; path = Model/MGSetGame.h; sourceTree = "<group>"; };
+		6543B68116CC95FF00010EF3 /* MGSetGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSetGame.m; path = Model/MGSetGame.m; sourceTree = "<group>"; };
+		65644FB116F64250006EB4B0 /* MGPlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGPlayingCardView.h; path = View/MGPlayingCardView.h; sourceTree = "<group>"; };
+		65644FB216F64250006EB4B0 /* MGPlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGPlayingCardView.m; path = View/MGPlayingCardView.m; sourceTree = "<group>"; };
+		65644FB516F650E9006EB4B0 /* J♠.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♠.jpg"; sourceTree = "<group>"; };
+		65644FB616F650E9006EB4B0 /* J♠@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♠@2x.jpg"; sourceTree = "<group>"; };
+		65644FB716F650E9006EB4B0 /* J♣.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♣.jpg"; sourceTree = "<group>"; };
+		65644FB816F650E9006EB4B0 /* J♣@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♣@2x.jpg"; sourceTree = "<group>"; };
+		65644FB916F650E9006EB4B0 /* J♥.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♥.jpg"; sourceTree = "<group>"; };
+		65644FBA16F650E9006EB4B0 /* J♥@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♥@2x.jpg"; sourceTree = "<group>"; };
+		65644FBB16F650E9006EB4B0 /* J♦.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♦.jpg"; sourceTree = "<group>"; };
+		65644FBC16F650E9006EB4B0 /* J♦@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "J♦@2x.jpg"; sourceTree = "<group>"; };
+		65644FBD16F650E9006EB4B0 /* K♠.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♠.jpg"; sourceTree = "<group>"; };
+		65644FBE16F650E9006EB4B0 /* K♠@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♠@2x.jpg"; sourceTree = "<group>"; };
+		65644FBF16F650E9006EB4B0 /* K♣.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♣.jpg"; sourceTree = "<group>"; };
+		65644FC016F650E9006EB4B0 /* K♣@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♣@2x.jpg"; sourceTree = "<group>"; };
+		65644FC116F650E9006EB4B0 /* K♥.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♥.jpg"; sourceTree = "<group>"; };
+		65644FC216F650E9006EB4B0 /* K♥@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♥@2x.jpg"; sourceTree = "<group>"; };
+		65644FC316F650E9006EB4B0 /* K♦.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♦.jpg"; sourceTree = "<group>"; };
+		65644FC416F650E9006EB4B0 /* K♦@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "K♦@2x.jpg"; sourceTree = "<group>"; };
+		65644FC516F650E9006EB4B0 /* Q♠.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♠.jpg"; sourceTree = "<group>"; };
+		65644FC616F650E9006EB4B0 /* Q♠@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♠@2x.jpg"; sourceTree = "<group>"; };
+		65644FC716F650E9006EB4B0 /* Q♣.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♣.jpg"; sourceTree = "<group>"; };
+		65644FC816F650E9006EB4B0 /* Q♣@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♣@2x.jpg"; sourceTree = "<group>"; };
+		65644FC916F650E9006EB4B0 /* Q♥.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♥.jpg"; sourceTree = "<group>"; };
+		65644FCA16F650E9006EB4B0 /* Q♥@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♥@2x.jpg"; sourceTree = "<group>"; };
+		65644FCB16F650E9006EB4B0 /* Q♦.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♦.jpg"; sourceTree = "<group>"; };
+		65644FCC16F650E9006EB4B0 /* Q♦@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Q♦@2x.jpg"; sourceTree = "<group>"; };
+		65644FCD16F650E9006EB4B0 /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
+		65644FE716F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGPlayingCardCollectionViewCell.h; path = View/MGPlayingCardCollectionViewCell.h; sourceTree = "<group>"; };
+		65644FE816F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGPlayingCardCollectionViewCell.m; path = View/MGPlayingCardCollectionViewCell.m; sourceTree = "<group>"; };
+		6564500C16F6B524006EB4B0 /* MGSetCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSetCardCollectionViewCell.h; sourceTree = "<group>"; };
+		6564500D16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetCardCollectionViewCell.m; sourceTree = "<group>"; };
+		6564500F16F6B52E006EB4B0 /* MGSetCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSetCardView.h; sourceTree = "<group>"; };
+		6564501016F6B52E006EB4B0 /* MGSetCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetCardView.m; sourceTree = "<group>"; };
+		6577E30416DA83FF00E02F20 /* MGGameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGameResult.h; sourceTree = "<group>"; };
+		6577E30516DA83FF00E02F20 /* MGGameResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGameResult.m; sourceTree = "<group>"; };
+		6577E30716DA8B3800E02F20 /* MGGameResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGameResultsViewController.h; sourceTree = "<group>"; };
+		6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGameResultsViewController.m; sourceTree = "<group>"; };
+		65D4D22C16CC61210073D34C /* MGCardGameViewController_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGCardGameViewController_Protected.h; sourceTree = "<group>"; };
 		65D4D23116CC63FA0073D34C /* MGGame_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGGame_Protected.h; path = Model/MGGame_Protected.h; sourceTree = "<group>"; };
 		65D4D23216CC63FA0073D34C /* MGGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGGame.h; path = Model/MGGame.h; sourceTree = "<group>"; };
 		65D4D23316CC63FA0073D34C /* MGGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGGame.m; path = Model/MGGame.m; sourceTree = "<group>"; };
@@ -57,8 +134,8 @@
 		65E3CECB16C7109A00DDEA65 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		65E3CECD16C7109A00DDEA65 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		65E3CED016C7109A00DDEA65 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		65E3CED216C7109A00DDEA65 /* MGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
-		65E3CED316C7109A00DDEA65 /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
+		65E3CED216C7109A00DDEA65 /* MGCardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGCardGameViewController.h; sourceTree = "<group>"; };
+		65E3CED316C7109A00DDEA65 /* MGCardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGCardGameViewController.m; sourceTree = "<group>"; };
 		65E3CEDA16C710D900DDEA65 /* MGCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGCard.h; path = Model/MGCard.h; sourceTree = "<group>"; };
 		65E3CEDB16C710D900DDEA65 /* MGCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGCard.m; path = Model/MGCard.m; sourceTree = "<group>"; };
 		65E3CEDE16C710F500DDEA65 /* MGDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGDeck.h; path = Model/MGDeck.h; sourceTree = "<group>"; };
@@ -69,6 +146,7 @@
 		65E3CEE516C7111500DDEA65 /* MGPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGPlayingCardDeck.m; path = Model/MGPlayingCardDeck.m; sourceTree = "<group>"; };
 		65E3CEE716C7112E00DDEA65 /* MGMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGMatchingGame.h; path = Model/MGMatchingGame.h; sourceTree = "<group>"; };
 		65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGMatchingGame.m; path = Model/MGMatchingGame.m; sourceTree = "<group>"; };
+		65E90E0B16CD58F200A00FE1 /* greyPixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyPixel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +163,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65644FB016F64234006EB4B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6564500F16F6B52E006EB4B0 /* MGSetCardView.h */,
+				6564501016F6B52E006EB4B0 /* MGSetCardView.m */,
+				6564500C16F6B524006EB4B0 /* MGSetCardCollectionViewCell.h */,
+				6564500D16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m */,
+				65644FB116F64250006EB4B0 /* MGPlayingCardView.h */,
+				65644FB216F64250006EB4B0 /* MGPlayingCardView.m */,
+				65644FE716F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.h */,
+				65644FE816F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		65644FB416F650E9006EB4B0 /* Face Card Images */ = {
+			isa = PBXGroup;
+			children = (
+				65644FB516F650E9006EB4B0 /* J♠.jpg */,
+				65644FB616F650E9006EB4B0 /* J♠@2x.jpg */,
+				65644FB716F650E9006EB4B0 /* J♣.jpg */,
+				65644FB816F650E9006EB4B0 /* J♣@2x.jpg */,
+				65644FB916F650E9006EB4B0 /* J♥.jpg */,
+				65644FBA16F650E9006EB4B0 /* J♥@2x.jpg */,
+				65644FBB16F650E9006EB4B0 /* J♦.jpg */,
+				65644FBC16F650E9006EB4B0 /* J♦@2x.jpg */,
+				65644FBD16F650E9006EB4B0 /* K♠.jpg */,
+				65644FBE16F650E9006EB4B0 /* K♠@2x.jpg */,
+				65644FBF16F650E9006EB4B0 /* K♣.jpg */,
+				65644FC016F650E9006EB4B0 /* K♣@2x.jpg */,
+				65644FC116F650E9006EB4B0 /* K♥.jpg */,
+				65644FC216F650E9006EB4B0 /* K♥@2x.jpg */,
+				65644FC316F650E9006EB4B0 /* K♦.jpg */,
+				65644FC416F650E9006EB4B0 /* K♦@2x.jpg */,
+				65644FC516F650E9006EB4B0 /* Q♠.jpg */,
+				65644FC616F650E9006EB4B0 /* Q♠@2x.jpg */,
+				65644FC716F650E9006EB4B0 /* Q♣.jpg */,
+				65644FC816F650E9006EB4B0 /* Q♣@2x.jpg */,
+				65644FC916F650E9006EB4B0 /* Q♥.jpg */,
+				65644FCA16F650E9006EB4B0 /* Q♥@2x.jpg */,
+				65644FCB16F650E9006EB4B0 /* Q♦.jpg */,
+				65644FCC16F650E9006EB4B0 /* Q♦@2x.jpg */,
+			);
+			path = "Face Card Images";
+			sourceTree = "<group>";
+		};
 		65D4D22616CC5FF60073D34C /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,15 +226,14 @@
 		65D4D22716CC60000073D34C /* Matching */ = {
 			isa = PBXGroup;
 			children = (
+				65E3CEE716C7112E00DDEA65 /* MGMatchingGame.h */,
+				65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */,
+				65300C6816C845AB007D5923 /* MGThreeCardMatchingGame.h */,
+				65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */,
 				65E3CEE116C7110200DDEA65 /* MGPlayingCard.h */,
 				65E3CEE216C7110200DDEA65 /* MGPlayingCard.m */,
 				65E3CEE416C7111500DDEA65 /* MGPlayingCardDeck.h */,
 				65E3CEE516C7111500DDEA65 /* MGPlayingCardDeck.m */,
-				65E3CEE716C7112E00DDEA65 /* MGMatchingGame.h */,
-				65CFB0C816C84ECB005DEEBE /* MGMatchingGame_Protected.h */,
-				65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */,
-				65300C6816C845AB007D5923 /* MGThreeCardMatchingGame.h */,
-				65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */,
 			);
 			name = Matching;
 			sourceTree = "<group>";
@@ -118,8 +241,12 @@
 		65D4D22816CC60060073D34C /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				6543B68016CC95FF00010EF3 /* MGSetGame.h */,
+				6543B68116CC95FF00010EF3 /* MGSetGame.m */,
 				65D4D27216CC6A330073D34C /* MGSetCard.h */,
 				65D4D27316CC6A330073D34C /* MGSetCard.m */,
+				6543B67D16CC906B00010EF3 /* MGSetDeck.h */,
+				6543B67E16CC906C00010EF3 /* MGSetDeck.m */,
 			);
 			name = Set;
 			sourceTree = "<group>";
@@ -155,12 +282,19 @@
 			isa = PBXGroup;
 			children = (
 				65E3CECF16C7109A00DDEA65 /* MainStoryboard.storyboard */,
+				65644FB016F64234006EB4B0 /* View */,
 				65E3CEDD16C710DD00DDEA65 /* Model */,
-				65E3CED216C7109A00DDEA65 /* MGViewController.h */,
-				65D4D22C16CC61210073D34C /* MGViewController_Protected.h */,
-				65E3CED316C7109A00DDEA65 /* MGViewController.m */,
+				65E3CED216C7109A00DDEA65 /* MGCardGameViewController.h */,
+				65D4D22C16CC61210073D34C /* MGCardGameViewController_Protected.h */,
+				65E3CED316C7109A00DDEA65 /* MGCardGameViewController.m */,
 				65D4D23516CC642D0073D34C /* MGMatchingGameViewController.h */,
 				65D4D23616CC642D0073D34C /* MGMatchingGameViewController.m */,
+				6543B67A16CC901600010EF3 /* MGSetGameViewController.h */,
+				6543B67B16CC901600010EF3 /* MGSetGameViewController.m */,
+				6577E30716DA8B3800E02F20 /* MGGameResultsViewController.h */,
+				6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */,
+				65644FB416F650E9006EB4B0 /* Face Card Images */,
+				65644FCD16F650E9006EB4B0 /* cardback.png */,
 				65E3CEBE16C7109A00DDEA65 /* Supporting Files */,
 			);
 			path = Matchismo;
@@ -169,6 +303,7 @@
 		65E3CEBE16C7109A00DDEA65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				65E90E0B16CD58F200A00FE1 /* greyPixel.png */,
 				65300C6A16C84603007D5923 /* CardBack.jpg */,
 				65E3CEC616C7109A00DDEA65 /* MGAppDelegate.h */,
 				65E3CEC716C7109A00DDEA65 /* MGAppDelegate.m */,
@@ -186,9 +321,11 @@
 		65E3CEDD16C710DD00DDEA65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				65D4D22816CC60060073D34C /* Set */,
+				6577E30416DA83FF00E02F20 /* MGGameResult.h */,
+				6577E30516DA83FF00E02F20 /* MGGameResult.m */,
 				65D4D22616CC5FF60073D34C /* Abstract */,
 				65D4D22716CC60000073D34C /* Matching */,
+				65D4D22816CC60060073D34C /* Set */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +388,32 @@
 				65E3CECE16C7109A00DDEA65 /* Default-568h@2x.png in Resources */,
 				65E3CED116C7109A00DDEA65 /* MainStoryboard.storyboard in Resources */,
 				65300C6B16C84603007D5923 /* CardBack.jpg in Resources */,
+				65E90E0C16CD58F200A00FE1 /* greyPixel.png in Resources */,
+				65644FCE16F650E9006EB4B0 /* J♠.jpg in Resources */,
+				65644FCF16F650E9006EB4B0 /* J♠@2x.jpg in Resources */,
+				65644FD016F650E9006EB4B0 /* J♣.jpg in Resources */,
+				65644FD116F650E9006EB4B0 /* J♣@2x.jpg in Resources */,
+				65644FD216F650E9006EB4B0 /* J♥.jpg in Resources */,
+				65644FD316F650E9006EB4B0 /* J♥@2x.jpg in Resources */,
+				65644FD416F650E9006EB4B0 /* J♦.jpg in Resources */,
+				65644FD516F650E9006EB4B0 /* J♦@2x.jpg in Resources */,
+				65644FD616F650E9006EB4B0 /* K♠.jpg in Resources */,
+				65644FD716F650E9006EB4B0 /* K♠@2x.jpg in Resources */,
+				65644FD816F650E9006EB4B0 /* K♣.jpg in Resources */,
+				65644FD916F650E9006EB4B0 /* K♣@2x.jpg in Resources */,
+				65644FDA16F650E9006EB4B0 /* K♥.jpg in Resources */,
+				65644FDB16F650E9006EB4B0 /* K♥@2x.jpg in Resources */,
+				65644FDC16F650E9006EB4B0 /* K♦.jpg in Resources */,
+				65644FDD16F650E9006EB4B0 /* K♦@2x.jpg in Resources */,
+				65644FDE16F650E9006EB4B0 /* Q♠.jpg in Resources */,
+				65644FDF16F650E9006EB4B0 /* Q♠@2x.jpg in Resources */,
+				65644FE016F650E9006EB4B0 /* Q♣.jpg in Resources */,
+				65644FE116F650E9006EB4B0 /* Q♣@2x.jpg in Resources */,
+				65644FE216F650E9006EB4B0 /* Q♥.jpg in Resources */,
+				65644FE316F650E9006EB4B0 /* Q♥@2x.jpg in Resources */,
+				65644FE416F650E9006EB4B0 /* Q♦.jpg in Resources */,
+				65644FE516F650E9006EB4B0 /* Q♦@2x.jpg in Resources */,
+				65644FE616F650E9006EB4B0 /* cardback.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +426,7 @@
 			files = (
 				65E3CEC416C7109A00DDEA65 /* main.m in Sources */,
 				65E3CEC816C7109A00DDEA65 /* MGAppDelegate.m in Sources */,
-				65E3CED416C7109A00DDEA65 /* MGViewController.m in Sources */,
+				65E3CED416C7109A00DDEA65 /* MGCardGameViewController.m in Sources */,
 				65E3CEDC16C710D900DDEA65 /* MGCard.m in Sources */,
 				65E3CEE016C710F500DDEA65 /* MGDeck.m in Sources */,
 				65E3CEE316C7110200DDEA65 /* MGPlayingCard.m in Sources */,
@@ -273,6 +436,15 @@
 				65D4D23416CC63FA0073D34C /* MGGame.m in Sources */,
 				65D4D23716CC642D0073D34C /* MGMatchingGameViewController.m in Sources */,
 				65D4D27416CC6A330073D34C /* MGSetCard.m in Sources */,
+				6543B67C16CC901600010EF3 /* MGSetGameViewController.m in Sources */,
+				6543B67F16CC906C00010EF3 /* MGSetDeck.m in Sources */,
+				6543B68216CC95FF00010EF3 /* MGSetGame.m in Sources */,
+				6577E30616DA83FF00E02F20 /* MGGameResult.m in Sources */,
+				6577E30916DA8B3800E02F20 /* MGGameResultsViewController.m in Sources */,
+				65644FB316F64250006EB4B0 /* MGPlayingCardView.m in Sources */,
+				65644FE916F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m in Sources */,
+				6564500E16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m in Sources */,
+				6564501116F6B52E006EB4B0 /* MGSetCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
