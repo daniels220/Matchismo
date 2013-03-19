@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65300C6B16C84603007D5923 /* CardBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65300C6A16C84603007D5923 /* CardBack.jpg */; };
 		6543B67C16CC901600010EF3 /* MGSetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B67B16CC901600010EF3 /* MGSetGameViewController.m */; };
 		6543B67F16CC906C00010EF3 /* MGSetDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B67E16CC906C00010EF3 /* MGSetDeck.m */; };
 		6543B68216CC95FF00010EF3 /* MGSetGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543B68116CC95FF00010EF3 /* MGSetGame.m */; };
@@ -42,7 +41,6 @@
 		6564501116F6B52E006EB4B0 /* MGSetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6564501016F6B52E006EB4B0 /* MGSetCardView.m */; };
 		6577E30616DA83FF00E02F20 /* MGGameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30516DA83FF00E02F20 /* MGGameResult.m */; };
 		6577E30916DA8B3800E02F20 /* MGGameResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */; };
-		65CFB0C716C84BDC005DEEBE /* MGThreeCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */; };
 		65D4D23416CC63FA0073D34C /* MGGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23316CC63FA0073D34C /* MGGame.m */; };
 		65D4D23716CC642D0073D34C /* MGMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23616CC642D0073D34C /* MGMatchingGameViewController.m */; };
 		65D4D27416CC6A330073D34C /* MGSetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D27316CC6A330073D34C /* MGSetCard.m */; };
@@ -62,13 +60,9 @@
 		65E3CEE316C7110200DDEA65 /* MGPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE216C7110200DDEA65 /* MGPlayingCard.m */; };
 		65E3CEE616C7111500DDEA65 /* MGPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE516C7111500DDEA65 /* MGPlayingCardDeck.m */; };
 		65E3CEE916C7112E00DDEA65 /* MGMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */; };
-		65E90E0C16CD58F200A00FE1 /* greyPixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E90E0B16CD58F200A00FE1 /* greyPixel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		65300C6816C845AB007D5923 /* MGThreeCardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MGThreeCardMatchingGame.h; path = Model/MGThreeCardMatchingGame.h; sourceTree = "<group>"; };
-		65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MGThreeCardMatchingGame.m; path = Model/MGThreeCardMatchingGame.m; sourceTree = "<group>"; };
-		65300C6A16C84603007D5923 /* CardBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CardBack.jpg; sourceTree = "<group>"; };
 		6543B67A16CC901600010EF3 /* MGSetGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSetGameViewController.h; sourceTree = "<group>"; };
 		6543B67B16CC901600010EF3 /* MGSetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetGameViewController.m; sourceTree = "<group>"; };
 		6543B67D16CC906B00010EF3 /* MGSetDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSetDeck.h; path = Model/MGSetDeck.h; sourceTree = "<group>"; };
@@ -146,7 +140,6 @@
 		65E3CEE516C7111500DDEA65 /* MGPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGPlayingCardDeck.m; path = Model/MGPlayingCardDeck.m; sourceTree = "<group>"; };
 		65E3CEE716C7112E00DDEA65 /* MGMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGMatchingGame.h; path = Model/MGMatchingGame.h; sourceTree = "<group>"; };
 		65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGMatchingGame.m; path = Model/MGMatchingGame.m; sourceTree = "<group>"; };
-		65E90E0B16CD58F200A00FE1 /* greyPixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyPixel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,8 +221,6 @@
 			children = (
 				65E3CEE716C7112E00DDEA65 /* MGMatchingGame.h */,
 				65E3CEE816C7112E00DDEA65 /* MGMatchingGame.m */,
-				65300C6816C845AB007D5923 /* MGThreeCardMatchingGame.h */,
-				65300C6916C845AB007D5923 /* MGThreeCardMatchingGame.m */,
 				65E3CEE116C7110200DDEA65 /* MGPlayingCard.h */,
 				65E3CEE216C7110200DDEA65 /* MGPlayingCard.m */,
 				65E3CEE416C7111500DDEA65 /* MGPlayingCardDeck.h */,
@@ -293,8 +284,6 @@
 				6543B67B16CC901600010EF3 /* MGSetGameViewController.m */,
 				6577E30716DA8B3800E02F20 /* MGGameResultsViewController.h */,
 				6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */,
-				65644FB416F650E9006EB4B0 /* Face Card Images */,
-				65644FCD16F650E9006EB4B0 /* cardback.png */,
 				65E3CEBE16C7109A00DDEA65 /* Supporting Files */,
 			);
 			path = Matchismo;
@@ -303,8 +292,8 @@
 		65E3CEBE16C7109A00DDEA65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65E90E0B16CD58F200A00FE1 /* greyPixel.png */,
-				65300C6A16C84603007D5923 /* CardBack.jpg */,
+				65644FB416F650E9006EB4B0 /* Face Card Images */,
+				65644FCD16F650E9006EB4B0 /* cardback.png */,
 				65E3CEC616C7109A00DDEA65 /* MGAppDelegate.h */,
 				65E3CEC716C7109A00DDEA65 /* MGAppDelegate.m */,
 				65E3CEBF16C7109A00DDEA65 /* Matchismo-Info.plist */,
@@ -387,8 +376,6 @@
 				65E3CECC16C7109A00DDEA65 /* Default@2x.png in Resources */,
 				65E3CECE16C7109A00DDEA65 /* Default-568h@2x.png in Resources */,
 				65E3CED116C7109A00DDEA65 /* MainStoryboard.storyboard in Resources */,
-				65300C6B16C84603007D5923 /* CardBack.jpg in Resources */,
-				65E90E0C16CD58F200A00FE1 /* greyPixel.png in Resources */,
 				65644FCE16F650E9006EB4B0 /* J♠.jpg in Resources */,
 				65644FCF16F650E9006EB4B0 /* J♠@2x.jpg in Resources */,
 				65644FD016F650E9006EB4B0 /* J♣.jpg in Resources */,
@@ -432,7 +419,6 @@
 				65E3CEE316C7110200DDEA65 /* MGPlayingCard.m in Sources */,
 				65E3CEE616C7111500DDEA65 /* MGPlayingCardDeck.m in Sources */,
 				65E3CEE916C7112E00DDEA65 /* MGMatchingGame.m in Sources */,
-				65CFB0C716C84BDC005DEEBE /* MGThreeCardMatchingGame.m in Sources */,
 				65D4D23416CC63FA0073D34C /* MGGame.m in Sources */,
 				65D4D23716CC642D0073D34C /* MGMatchingGameViewController.m in Sources */,
 				65D4D27416CC6A330073D34C /* MGSetCard.m in Sources */,

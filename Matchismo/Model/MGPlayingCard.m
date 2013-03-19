@@ -19,10 +19,11 @@
 -(NSUInteger)match:(NSArray *)otherCards {
 	int suitMatches = 0;
 	int rankMatches = 0;
+	MGPlayingCard* prev = self;
 	for (MGPlayingCard* otherCard in otherCards) {
-		if ([otherCard.suit isEqualToString:self.suit])
+		if ([otherCard.suit isEqualToString:prev.suit])
 			suitMatches++;
-		else if (otherCard.rank == self.rank)
+		else if (otherCard.rank == prev.rank)
 			rankMatches++;
 		//Stop immediately if any cards don't match
 		else

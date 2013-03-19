@@ -9,7 +9,7 @@
 #import "MGMatchingGameViewController.h"
 #import "MGCardGameViewController_Protected.h"
 
-#import "MGThreeCardMatchingGame.h"
+#import "MGMatchingGame.h"
 #import "MGPlayingCardDeck.h"
 #import "MGPlayingCard.h"
 #import "MGPlayingCardCollectionViewCell.h"
@@ -19,7 +19,6 @@
 
 //Overrides declaration in parent class to change type from MGGame* to MGMatchingGame*
 @property (strong, nonatomic) MGMatchingGame* game;
-@property (strong, nonatomic) Class gameMode;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitch;
 - (IBAction)changeMode:(UISegmentedControl*)sender;
@@ -29,13 +28,8 @@
 @implementation MGMatchingGameViewController
 
 //GET/SET
--(Class)gameMode {
-	if (!_gameMode) _gameMode = MGMatchingGame.class;
-	return _gameMode;
-}
-
 -(NSUInteger)startingCardCount {
-	return 16;
+	return 22;
 }
 
 -(void)updateCell:(MGPlayingCardCollectionViewCell *)cell usingCard:(MGPlayingCard *)card {
@@ -57,17 +51,18 @@
 }
 
 -(MGMatchingGame *)game {
-	if (!super.game) super.game = [[self.gameMode alloc]
+	if (!super.game) super.game = [[MGMatchingGame alloc]
 											 initWithCardCount:self.startingCardCount
 											 usingDeck:[MGPlayingCardDeck new]];
+	super.game.maxCardsUp = self.modeSwitch.selectedSegmentIndex == 0 ? 2 : 3;
 	return super.game;
 }
 
 - (IBAction)changeMode:(UISegmentedControl *)sender {
 	if ([sender selectedSegmentIndex] == 0)
-		self.gameMode = MGMatchingGame.class;
+		self.game.maxCardsUp = 2;
 	else
-		self.gameMode = MGThreeCardMatchingGame.class;
+		self.game.maxCardsUp = 3;
 	[self deal];
 }
 

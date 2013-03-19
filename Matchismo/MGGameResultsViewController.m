@@ -49,7 +49,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-	NSLog(@"%@",[MGGameResult allGameResults]);
 	[self reloadData];
 }
 

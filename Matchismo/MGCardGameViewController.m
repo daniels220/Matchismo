@@ -70,8 +70,8 @@
 	self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d",self.game.numFlips];
 	
 	//Update the log label
-	if ([self.game.lastMove isKindOfClass:NSAttributedString.class])
-		self.logLabel.attributedText = self.game.lastMove;
+	if ([self.game.lastMove isKindOfClass:UILabel.class])
+		self.logLabel.attributedText = [self.game.lastMove attributedText];
 	else
 		self.logLabel.text = self.game.lastMove;
 	

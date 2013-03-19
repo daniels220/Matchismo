@@ -40,10 +40,8 @@
 		return [self diamondInRect:[self boundsForSymbol:symNumber]];
 	else if ([self.symbol isEqualToString:@"●"])
 		return [self squiggleInRect:[self boundsForSymbol:symNumber]];
-	else if ([self.symbol isEqualToString:@"■"]) {
-		CGRect bounds = [self boundsForSymbol:symNumber];
-		return [UIBezierPath bezierPathWithRoundedRect:bounds cornerRadius:bounds.size.width/2];
-	}
+	else if ([self.symbol isEqualToString:@"■"])
+		return [self roundCapRectInRect:[self boundsForSymbol:symNumber]];
 	return nil;
 }
 
@@ -83,7 +81,7 @@
 }
 
 - (UIBezierPath*) roundCapRectInRect:(CGRect)rect {
-	
+	return [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:rect.size.width/2];
 }
 
 -(void)addCurveInRect:(CGRect)rect toBezierPath:(UIBezierPath*)path toPointX:(CGFloat)x y:(CGFloat)y {

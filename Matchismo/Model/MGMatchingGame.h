@@ -10,5 +10,6 @@
 
 @interface MGMatchingGame : MGGame
 
+@property (nonatomic,readwrite)	NSUInteger maxCardsUp;
 
 @end
