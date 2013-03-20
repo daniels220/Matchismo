@@ -12,15 +12,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dQr-Ss-B2M">
-                                <rect key="frame" x="20" y="358" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uVp-cU-i3J">
-                                <rect key="frame" x="164" y="358" width="136" height="21"/>
+                                <rect key="frame" x="164" y="337" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UuV-OI-NKr">
-                                <rect key="frame" x="19" y="387" width="280" height="21"/>
+                                <rect key="frame" x="19" y="397" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -110,17 +103,64 @@
                                     <outletCollection property="gestureRecognizers" destination="nlG-Vn-gP0" appends="YES" id="Kyg-hB-oOp"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selected:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d84-31-sjm">
+                                <rect key="frame" x="20" y="337" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="scaleToFill" id="OZg-jr-b3O" customClass="MGPlayingCardView">
+                                <rect key="frame" x="99" y="328" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="g6F-GD-pmc" customClass="MGPlayingCardView">
+                                <rect key="frame" x="137" y="328" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="NNQ-QV-N7v" customClass="MGPlayingCardView">
+                                <rect key="frame" x="19" y="376" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="lCT-ZL-E4q" customClass="MGPlayingCardView">
+                                <rect key="frame" x="57" y="376" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="1Mv-7o-Zja" customClass="MGPlayingCardView">
+                                <rect key="frame" x="95" y="376" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Match! 4 points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="35g-pq-3N6">
+                                <rect key="frame" x="133" y="385" width="143" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flipped" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KKS-mQ-sDv">
+                                <rect key="frame" x="20" y="385" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Matching" id="yIs-CY-LuN"/>
                     <connections>
                         <outlet property="cardCollection" destination="NCN-wX-kIx" id="3E2-rj-Id8"/>
-                        <outlet property="flipsLabel" destination="dQr-Ss-B2M" id="ufO-CK-jf6"/>
+                        <outlet property="firstSelectedCard" destination="OZg-jr-b3O" id="0g4-Po-kya"/>
                         <outlet property="historySlider" destination="oHN-ej-Gfz" id="aNj-xs-v2L"/>
                         <outlet property="logLabel" destination="UuV-OI-NKr" id="1ZG-8k-YHO"/>
+                        <outlet property="matchMoveCard1" destination="NNQ-QV-N7v" id="bOs-Fb-HWr"/>
+                        <outlet property="matchMoveCard2" destination="lCT-ZL-E4q" id="XpL-f3-QlH"/>
+                        <outlet property="matchMoveLabel" destination="35g-pq-3N6" id="uvT-AQ-BAi"/>
                         <outlet property="modeSwitch" destination="40B-JD-9xp" id="qsP-35-Okn"/>
+                        <outlet property="pickMoveDisplayCard" destination="1Mv-7o-Zja" id="1bA-rk-23a"/>
+                        <outlet property="pickMoveLabel" destination="KKS-mQ-sDv" id="Nh2-O3-Jlg"/>
                         <outlet property="scoreLabel" destination="uVp-cU-i3J" id="8Zd-cL-E2Q"/>
+                        <outlet property="secondSelectedCard" destination="g6F-GD-pmc" id="eKx-SZ-1cv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -143,8 +183,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="GdZ-n3-KCp"/>
                         <segue destination="dbL-bC-avf" kind="relationship" relationship="viewControllers" id="g1V-zp-rmo"/>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="GdZ-n3-KCp"/>
                         <segue destination="wjF-pU-RXc" kind="relationship" relationship="viewControllers" id="6c6-eg-Gft"/>
                     </connections>
                 </tabBarController>
@@ -161,14 +201,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yb2-my-M91">
-                                <rect key="frame" x="164" y="426" width="136" height="21"/>
+                                <rect key="frame" x="195" y="312" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3gJ-jL-gRe">
-                                <rect key="frame" x="130" y="436" width="61" height="44"/>
+                                <rect key="frame" x="239" y="436" width="61" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal!">
@@ -182,55 +222,41 @@
                                     <action selector="deal" destination="dbL-bC-avf" eventType="touchUpInside" id="kFj-Mr-scG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewk-r4-nM5">
-                                <rect key="frame" x="20" y="427" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" id="LY6-ZK-FjZ">
-                                <rect key="frame" x="128" y="398" width="172" height="23"/>
+                                <rect key="frame" x="130" y="407" width="172" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="moveInHistory:" destination="2" eventType="valueChanged" id="c0T-mn-gxg"/>
+                                    <action selector="moveInHistory:" destination="dbL-bC-avf" eventType="valueChanged" id="dep-fE-YoC"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Moves:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iQz-7I-USg">
-                                <rect key="frame" x="20" y="398" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t3V-xJ-0sb">
-                                <rect key="frame" x="20" y="369" width="280" height="21"/>
+                                <rect key="frame" x="20" y="407" width="103" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="9Vz-fo-grC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="361"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4lM-xj-ddi">
-                                    <size key="itemSize" width="60" height="43"/>
+                                    <size key="itemSize" width="80" height="61"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="l6n-fZ-49e" customClass="MGSetCardCollectionViewCell">
-                                        <rect key="frame" x="20" y="20" width="60" height="43"/>
+                                        <rect key="frame" x="20" y="20" width="80" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" contentMode="scaleToFill" id="ZRu-Ql-138" customClass="MGSetCardView">
-                                                    <rect key="frame" x="0.0" y="1" width="60" height="42"/>
+                                                    <rect key="frame" x="0.0" y="1" width="80" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
                                             </subviews>
@@ -247,16 +273,77 @@
                                     <outletCollection property="gestureRecognizers" destination="vKM-0T-PiY" appends="YES" id="PYg-Xl-SNu"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selected:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YIj-wg-NsU">
+                                <rect key="frame" x="20" y="312" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="scaleToFill" id="ndY-OT-feK" customClass="MGSetCardView">
+                                <rect key="frame" x="99" y="308" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Hh-Pr-97B">
+                                <rect key="frame" x="20" y="436" width="134" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="There's No Set!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="theresNoSet:" destination="dbL-bC-avf" eventType="touchUpInside" id="zke-nh-y87"/>
+                                </connections>
+                            </button>
+                            <view opaque="NO" contentMode="scaleToFill" id="AjA-aw-Rt5" customClass="MGSetCardView">
+                                <rect key="frame" x="147" y="308" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="fTw-9G-Y9x" customClass="MGSetCardView">
+                                <rect key="frame" x="20" y="346" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="ceG-2Z-GMm" customClass="MGSetCardView">
+                                <rect key="frame" x="68" y="346" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="LWh-ez-rgo" customClass="MGSetCardView">
+                                <rect key="frame" x="116" y="346" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not a set! -2 points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n62-u5-YOm">
+                                <rect key="frame" x="164" y="350" width="143" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Picked up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Pk-93-dfn">
+                                <rect key="frame" x="20" y="350" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="bMo-ZL-uhQ"/>
                     <connections>
                         <outlet property="cardCollection" destination="9Vz-fo-grC" id="Wch-cJ-Vbz"/>
-                        <outlet property="flipsLabel" destination="ewk-r4-nM5" id="Uk5-CW-DWm"/>
+                        <outlet property="firstSelectedCard" destination="ndY-OT-feK" id="oib-ig-y1k"/>
                         <outlet property="historySlider" destination="LY6-ZK-FjZ" id="AGF-ET-wDf"/>
-                        <outlet property="logLabel" destination="t3V-xJ-0sb" id="wsF-QX-Gvb"/>
+                        <outlet property="matchMoveCard1" destination="fTw-9G-Y9x" id="BbT-4f-dqT"/>
+                        <outlet property="matchMoveCard2" destination="ceG-2Z-GMm" id="iBs-Tk-SDQ"/>
+                        <outlet property="matchMoveLabel" destination="n62-u5-YOm" id="Hjn-mI-bRQ"/>
+                        <outlet property="pickMoveDisplayCard" destination="LWh-ez-rgo" id="baq-YZ-Ti7"/>
+                        <outlet property="pickMoveLabel" destination="2Pk-93-dfn" id="zi5-yW-DJF"/>
                         <outlet property="scoreLabel" destination="yb2-my-M91" id="VlC-S8-IpZ"/>
+                        <outlet property="secondSelectedCard" destination="AjA-aw-Rt5" id="x8h-vH-XQs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oij-jy-wOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,12 +444,23 @@
                 <relationship kind="action" name="deal"/>
                 <relationship kind="action" name="flipCard:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="moveInHistory:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="MatchMoveCard2" candidateClass="MGCardView"/>
                 <relationship kind="outlet" name="cardCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="firstSelectedCard" candidateClass="MGCardView"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="historySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="logLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="matchMoveCard1" candidateClass="MGCardView"/>
+                <relationship kind="outlet" name="matchMoveCard2" candidateClass="MGCardView"/>
+                <relationship kind="outlet" name="matchMoveLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickMoveDisplayCard" candidateClass="MGCardView"/>
+                <relationship kind="outlet" name="pickMoveLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondSelectedCard" candidateClass="MGCardView"/>
             </relationships>
+        </class>
+        <class className="MGCardView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MGCardView.h"/>
         </class>
         <class className="MGGameResultsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGGameResultsViewController.h"/>
@@ -385,7 +483,7 @@
                 <relationship kind="outlet" name="playingCardView" candidateClass="MGPlayingCardView"/>
             </relationships>
         </class>
-        <class className="MGPlayingCardView" superclassName="UIView">
+        <class className="MGPlayingCardView" superclassName="MGCardView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGPlayingCardView.h"/>
         </class>
         <class className="MGSetCardCollectionViewCell" superclassName="UICollectionViewCell">
@@ -394,11 +492,18 @@
                 <relationship kind="outlet" name="setCardView" candidateClass="MGSetCardView"/>
             </relationships>
         </class>
-        <class className="MGSetCardView" superclassName="UIView">
+        <class className="MGSetCardView" superclassName="MGCardView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGSetCardView.h"/>
         </class>
         <class className="MGSetGameViewController" superclassName="MGCardGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGSetGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="theresNoSet:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="matchMoveLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickMoveDisplayCard" candidateClass="MGSetCardView"/>
+                <relationship kind="outlet" name="pickMoveLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="matchMoveDisplayCards" candidateClass="MGSetCardView"/>
+            </relationships>
         </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>

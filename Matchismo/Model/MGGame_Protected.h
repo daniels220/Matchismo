@@ -11,6 +11,7 @@
 @interface MGGame ()
 
 @property (strong,nonatomic) NSMutableArray* cards;
+@property (strong,nonatomic) MGDeck* deck;
 -(NSArray*)faceDownCards;
 -(NSArray*)playableFaceUpCards;
 @property (nonatomic,readwrite) NSInteger score;
@@ -19,14 +20,5 @@
 @property (nonatomic,readwrite) GameState gameState;
 
 @property (strong,nonatomic) NSMutableArray* pastMoves;
-
-_abstract @property (nonatomic,readonly) NSUInteger flipCost;
-_abstract @property (nonatomic,readonly) NSUInteger matchBonus;
-_abstract @property (nonatomic,readonly) NSUInteger mismatchPenalty;
-_abstract @property (nonatomic,readonly) NSUInteger winBonus;
-_abstract @property (nonatomic,readonly) NSUInteger maxCardsUp;
-_abstract -(UIView*) moveByFlippingSingleCard:(MGCard*)card;
-_abstract -(UIView*) moveWithCards:(NSArray*)cards matchedForScore:(NSInteger)score;
-
 
 @end

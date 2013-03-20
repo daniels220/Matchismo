@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 Daniel Slomovits. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MGCardView.h"
 
-@interface MGPlayingCardView : UIView
+@interface MGPlayingCardView : MGCardView
 
 @property (nonatomic) NSUInteger rank;
 @property (strong,nonatomic) NSString* suit;
-@property (nonatomic) BOOL faceUp;
 
 @end

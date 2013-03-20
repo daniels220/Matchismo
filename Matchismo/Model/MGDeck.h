@@ -14,5 +14,6 @@
 -(void) addCard:(MGCard*) card;
 
 -(MGCard*) drawRandomCard;
+-(NSUInteger) cardsRemaining;
 
 @end

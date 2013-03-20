@@ -10,39 +10,57 @@
 
 @implementation MGSetCardView
 
-#define CORNER_FRACTION 0.1
 - (void)drawRect:(CGRect)rect {
-	UIBezierPath* roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.bounds.size.width*CORNER_FRACTION];
-	[roundedRect addClip];
+	[super drawRect:rect];
 	
-	if (self.selected)
+	if (self.selected) {
 		[[UIColor colorWithWhite:0.8 alpha:1] setFill];
-	else
-		[[UIColor whiteColor] setFill];
-	UIRectFill(self.bounds);
+		UIRectFill(self.bounds);
+	}
 	
-	[[UIColor blackColor] setStroke];
-	[roundedRect stroke];
-	
-	[self.color setStroke];
-	[[self.color colorWithAlphaComponent:self.shading] setFill];
+	[self.strokeColor setStroke];
+	[self.backgroundPattern setFill];
 	for (int i=0; i<self.number; i++) {
 		UIBezierPath* path = [self pathForSymbol:i];
 		[path stroke];
 		[path fill];
 	}
-	
+}
+
+-(UIColor*)strokeColor {
+	return @[[UIColor redColor],[UIColor greenColor],[UIColor purpleColor]][self.color];
+}
+
+-(UIColor*)backgroundPattern {
+	switch (self.shading) {
+		case SetShadingEmpty:
+			return [UIColor clearColor];
+		case SetShadingFilled:
+			return self.strokeColor;
+		case SetShadingStriped:
+			//Create an image with 1px of color and 4px of clear
+			UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 3), NO, 0);
+			[self.strokeColor setFill];
+			//Fill a 1x1 rectangle at the top to make the one colored pixel
+			[[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 1, 1)] fill];
+			UIImage* img = UIGraphicsGetImageFromCurrentImageContext();
+			UIGraphicsEndImageContext();
+			return [UIColor colorWithPatternImage:img];
+	}
 }
 
 #define SYMBOL_SCALE 0.6
 -(UIBezierPath*)pathForSymbol:(NSInteger)symNumber {
-	if ([self.symbol isEqualToString:@"▲"])
-		return [self diamondInRect:[self boundsForSymbol:symNumber]];
-	else if ([self.symbol isEqualToString:@"●"])
-		return [self squiggleInRect:[self boundsForSymbol:symNumber]];
-	else if ([self.symbol isEqualToString:@"■"])
-		return [self roundCapRectInRect:[self boundsForSymbol:symNumber]];
-	return nil;
+	switch (self.symbol) {
+		case SetSymbolSquiggle:
+			return [self squiggleInRect:[self boundsForSymbol:symNumber]];
+		case SetSymbolDiamond:
+			return [self diamondInRect:[self boundsForSymbol:symNumber]];
+		case SetSymbolRacetrack:
+			return [self racetrackInRect:[self boundsForSymbol:symNumber]];
+		default:
+			return nil;
+	}
 }
 
 -(UIBezierPath*) diamondInRect:(CGRect)rect {
@@ -80,7 +98,7 @@
 	return squiggle;
 }
 
-- (UIBezierPath*) roundCapRectInRect:(CGRect)rect {
+- (UIBezierPath*) racetrackInRect:(CGRect)rect {
 	return [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:rect.size.width/2];
 }
 
@@ -118,12 +136,12 @@
 	return CGRectMake(x, y, width, height);
 }
 
--(void)setColor:(UIColor *)color {
+-(void)setColor:(SetColor)color {
 	_color = color;
 	[self setNeedsDisplay];
 }
 
--(void)setSymbol:(NSString *)symbol {
+-(void)setSymbol:(SetSymbol)symbol {
 	_symbol = symbol;
 	[self setNeedsDisplay];
 }
@@ -133,13 +151,8 @@
 	[self setNeedsDisplay];
 }
 
--(void)setShading:(CGFloat)shading {
+-(void)setShading:(SetShading)shading {
 	_shading = shading;
-	[self setNeedsDisplay];
-}
-
--(void)setSelected:(BOOL)selected {
-	_selected = selected;
 	[self setNeedsDisplay];
 }
 

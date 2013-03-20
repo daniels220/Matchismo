@@ -11,6 +11,7 @@
 #import "MGCard.h"
 #import "MGGame.h"
 #import "MGGameResult.h"
+#import "MGCardView.h"
 
 @interface MGCardGameViewController ()
 
@@ -22,19 +23,35 @@
 - (IBAction)moveInHistory:(UISlider *)sender;
 - (IBAction)flipCard:(UITapGestureRecognizer*)sender;
 
+@property (weak, nonatomic) IBOutlet MGCardView *firstSelectedCard;
+@property (weak, nonatomic) IBOutlet MGCardView *secondSelectedCard;
+
+@property (weak, nonatomic) IBOutlet UILabel *pickMoveLabel;
+@property (weak, nonatomic) IBOutlet MGCardView *pickMoveDisplayCard;
+@property (weak, nonatomic) IBOutlet UILabel *matchMoveLabel;
+@property (weak, nonatomic) IBOutlet MGCardView *matchMoveCard1;
+@property (weak, nonatomic) IBOutlet MGCardView *matchMoveCard2;
+@property (strong, nonatomic) NSArray *matchMoveDisplayCards;
+
 @end
 
 @implementation MGCardGameViewController
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
 	[self updateUI];
 }
 
-- (IBAction)moveInHistory:(UISlider *)sender {
-	self.logLabel.text = [self.game movesAgo:(NSInteger)(self.game.numMoves - sender.value)];
+-(NSArray *)matchMoveDisplayCards {
+	return @[self.matchMoveCard1,self.matchMoveCard2,self.pickMoveDisplayCard];
 }
 
--(void)flipCard:(UITapGestureRecognizer *)sender {
+#pragma mark IBActions
+
+- (IBAction)moveInHistory:(UISlider *)sender {
+	[self updateMoveDisplayUsingMove:[self.game moveNumber:(NSInteger)sender.value]];
+}
+
+- (IBAction)flipCard:(UITapGestureRecognizer *)sender {
 	NSIndexPath* path = [self.cardCollection indexPathForItemAtPoint:[sender locationInView:self.cardCollection]];
 	if (path) {
 		[self.game flipCardAtIndex:path.item];
@@ -51,6 +68,8 @@
 	[self updateUI];
 }
 
+#pragma mark CollectionViewDelegate/DataSource
+
 -(NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
 	return self.game.numCards;
 }
@@ -63,22 +82,22 @@
 	return cell;
 }
 
-//OTHER
+#pragma mark updateUI
+
 -(void)updateUI {
 	//Update labels
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
-	self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d",self.game.numFlips];
 	
-	//Update the log label
-	if ([self.game.lastMove isKindOfClass:UILabel.class])
-		self.logLabel.attributedText = [self.game.lastMove attributedText];
-	else
-		self.logLabel.text = self.game.lastMove;
+	//Update the log display
+	[self updateMoveDisplayUsingMove:self.game.lastMove];
+	
+	//Update the selected display
+	[self updateSelectedDisplayUsingCards:self.game.playableFaceUpCards];
 	
 	//Set the range for the history slider
-	self.historySlider.enabled = self.game.numFlips != 0;
-	self.historySlider.maximumValue = self.game.numMoves;
-	self.historySlider.value = self.game.numMoves;
+	self.historySlider.enabled = self.game.numMoves > 1;
+	self.historySlider.maximumValue = self.game.numMoves - 0.01;
+	self.historySlider.value = self.game.numMoves - 0.01;
 	
 	//Update state of cards
 	for (UICollectionViewCell* cell in self.cardCollection.visibleCells) {
@@ -96,9 +115,8 @@
 		NSString* title;
 		if (self.game.gameState == DONE_STATE)
 			title = @"You Win!";
-		else {
+		else
 			title = @"You Can Go No Further...";
-		}
 		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title
 																												message:[NSString stringWithFormat:@"Game completed in %.0f seconds",self.game.result.duration]
 																											 delegate:nil
@@ -107,6 +125,73 @@
 		[alertView show];
 	}
 	
+}
+
+-(void)updateMoveDisplayUsingMove:(MGGameMove *)move {
+	//Start of game
+	if (!move) {
+		self.pickMoveLabel.hidden = YES;
+		self.pickMoveDisplayCard.hidden = YES;
+		self.matchMoveLabel.hidden = YES;
+		for (MGCardView* cardView in self.matchMoveDisplayCards)
+			cardView.hidden = YES;
+	}
+	//"Pick"-type moves
+	else if (move.cards.count < self.game.maxCardsUp) {
+		//Update the card display
+		[self updateCardView:self.pickMoveDisplayCard usingCard:[move.cards lastObject]];
+		self.pickMoveDisplayCard.selected = NO;
+		self.pickMoveDisplayCard.faceUp	= YES;
+		//Hide the stuff that's only used for match-type moves
+		self.matchMoveLabel.hidden = YES;
+		for (MGCardView* cardView in self.matchMoveDisplayCards)
+			cardView.hidden = YES;
+		//Show the stuff that's used for pick-type moves
+		self.pickMoveLabel.hidden = NO;
+		self.pickMoveDisplayCard.hidden = NO;
+	}
+	//Moves where a match was made
+	else {
+		for (NSInteger i=0; i<self.game.maxCardsUp; i++) {
+			[self updateCardView:self.matchMoveDisplayCards[i] usingCard:move.cards[i]];
+			[self.matchMoveDisplayCards[i] setFaceUp:YES];
+			[self.matchMoveDisplayCards[i] setSelected:NO];
+			[self.matchMoveDisplayCards[i] setHidden:NO];
+		}
+		for (NSInteger i=self.game.maxCardsUp; i<self.matchMoveDisplayCards.count; i++)
+			[self.matchMoveDisplayCards[i] setHidden:YES];
+		
+		self.matchMoveLabel.text = move.score > 0 ?
+		[NSString stringWithFormat:@"Match! %d point%c",move.score,move.score == 1 ? ' ':'s'] :
+		[NSString stringWithFormat:@"Don't match! -%d point%c",self.game.mismatchPenalty,move.score == 1 ? ' ':'s'];
+		
+		self.pickMoveLabel.hidden = YES;
+		self.matchMoveLabel.hidden = NO;
+	}
+}
+
+-(void)updateSelectedDisplayUsingCards:(NSArray *)cards {
+	if (cards.count == 1) {
+		[self updateCardView:self.firstSelectedCard usingCard:cards[0]];
+		self.firstSelectedCard.selected = NO;
+		self.firstSelectedCard.faceUp = YES;
+		self.secondSelectedCard.hidden = YES;
+		self.firstSelectedCard.hidden = NO;
+	}
+	else if (cards.count == 2) {
+		[self updateCardView:self.firstSelectedCard usingCard:cards[0]];
+		self.firstSelectedCard.selected = NO;
+		self.firstSelectedCard.faceUp = YES;
+		[self updateCardView:self.secondSelectedCard usingCard:cards[1]];
+		self.secondSelectedCard.selected = NO;
+		self.secondSelectedCard.faceUp = YES;
+		self.firstSelectedCard.hidden = NO;
+		self.secondSelectedCard.hidden = NO;
+	}
+	else {
+		self.firstSelectedCard.hidden = YES;
+		self.secondSelectedCard.hidden = YES;
+	}
 }
 
 @end

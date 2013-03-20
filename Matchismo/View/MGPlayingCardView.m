@@ -16,17 +16,9 @@
 
 @implementation MGPlayingCardView
 
-#define CORNER_FRACTION 0.1
 #define FACE_CARD_MARGIN_FRACTION 0.1
 - (void)drawRect:(CGRect)rect {
-	UIBezierPath* roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.bounds.size.width*CORNER_FRACTION];
-	[roundedRect addClip];
-	
-	[[UIColor whiteColor] setFill];
-	UIRectFill(self.bounds);
-	
-	[[UIColor blackColor] setStroke];
-	[roundedRect stroke];
+	[super drawRect:rect];
 	
 	if (self.faceUp) {
 	UIImage* faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.jpg",self.rankAsString,self.suit]];
@@ -154,11 +146,6 @@
 
 -(void)setRank:(NSUInteger)rank {
 	_rank = rank;
-	[self setNeedsDisplay];
-}
-
--(void)setFaceUp:(BOOL)faceUp {
-	_faceUp = faceUp;
 	[self setNeedsDisplay];
 }
 

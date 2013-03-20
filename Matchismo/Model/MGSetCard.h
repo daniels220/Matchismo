@@ -8,25 +8,34 @@
 
 #import "MGCard.h"
 
-#define SetShadingEmpty 0.0f
-#define SetShadingShaded 0.25f
-#define SetShadingFilled 1.0f
-
 #define SetMinNumber 1
 #define SetMaxNumber 3
 
+typedef enum SetSymbol {
+  SetSymbolSquiggle,
+  SetSymbolDiamond,
+	SetSymbolRacetrack
+} SetSymbol;
+
+typedef enum SetColor {
+	SetColorRed,
+	SetColorGreen,
+	SetColorPurple
+} SetColor;
+
+typedef enum SetShading {
+	SetShadingEmpty,
+	SetShadingStriped,
+	SetShadingFilled
+} SetShading;
+
 @interface MGSetCard : MGCard
 
-@property (strong,nonatomic) NSString* symbol;
-@property (nonatomic) NSInteger number;
-@property (strong,nonatomic) UIColor* color;
-@property (nonatomic) float shading;
+@property (nonatomic) SetSymbol symbol;
+@property (nonatomic) NSUInteger number;
+@property (nonatomic) SetColor color;
+@property (nonatomic) SetShading shading;
 
--(id)initWithSymbol:(NSString*)symbol number:(NSInteger)number color:(UIColor*)color shading:(float)shading;
-
--(NSAttributedString*) attributedString;
-
-+(NSArray*) validSymbols;
-+(NSArray*) validColors;
+-(id)initWithSymbol:(SetSymbol) symbol number:(NSUInteger)number color:(SetColor)color shading:(SetShading)shading;
 
 @end

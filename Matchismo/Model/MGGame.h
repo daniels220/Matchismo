@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MGGameMove.h"
 #import "MGGameResult.h"
-@class MGCard;
-@class MGDeck;
+#import "MGCard.h"
+#import "MGDeck.h"
 
 typedef enum {
 	PLAYING_STATE,
@@ -20,19 +21,27 @@ typedef enum {
 @interface MGGame : NSObject
 
 @property (nonatomic,readonly) NSInteger score;
-@property (nonatomic,readonly) NSUInteger numFlips;
 @property (strong,nonatomic,readonly) MGGameResult* result;
 @property (nonatomic,readonly) GameState gameState;
 
 -(NSUInteger) numCards;
+-(NSArray*) playableFaceUpCards;
 -(void) flipCardAtIndex:(NSUInteger) index;
 -(MGCard*) cardAtIndex:(NSUInteger) index;
+-(void) removeCardAtIndex:(NSUInteger) index;
+-(void) dealCard;
 
--(id) lastMove;
+-(MGGameMove*) lastMove;
 -(NSInteger) numMoves;
--(id) movesAgo:(NSInteger) movesAgo;
+-(MGGameMove*) moveNumber:(NSInteger) moveNumber;
 
 -(id) initWithCardCount:(NSUInteger)count usingDeck:(MGDeck*)deck;
 -(NSString*) typeString;
+
+_abstract @property (nonatomic,readonly) NSUInteger maxCardsUp;
+_abstract @property (nonatomic,readonly) NSUInteger flipCost;
+_abstract @property (nonatomic,readonly) NSUInteger matchBonus;
+_abstract @property (nonatomic,readonly) NSUInteger mismatchPenalty;
+_abstract @property (nonatomic,readonly) NSUInteger winBonus;
 
 @end

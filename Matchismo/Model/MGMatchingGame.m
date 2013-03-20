@@ -36,24 +36,4 @@
 	return _maxCardsUp;
 }
 
--(UIView *)moveByFlippingSingleCard:(MGCard *)card {
-	return [NSString stringWithFormat:@"Flipped up %@",card.contents];
-}
-
--(UIView *)moveWithCards:(NSArray *)cards matchedForScore:(NSInteger)score {
-	if (self.maxCardsUp == 2) {
-		if (score)
-			return [NSString stringWithFormat:@"%@ matched %@ for %d points",cards[0],cards[1],score*self.matchBonus];
-		else
-			return [NSString stringWithFormat:@"%@ did not match %@, %d point penalty",cards[0],cards[1],self.mismatchPenalty];
-	}
-	//maxCardsUp must be 3--or anyway it always will be in this app
-	else {
-		if (score)
-			return [NSString stringWithFormat:@"%@, %@, %@ matched for %d points",cards[0],cards[1],cards[2],score*self.matchBonus];
-		else
-			return [NSString stringWithFormat:@"%@, %@, %@ do not match, %d point penalty",cards[0],cards[1],cards[2],self.mismatchPenalty];
-	}
-}
-
 @end

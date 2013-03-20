@@ -15,22 +15,30 @@
 	char shadingChar;
 	if (self.shading == SetShadingEmpty)
 		shadingChar = 'E';
-	else if (self.shading == SetShadingShaded)
+	else if (self.shading == SetShadingStriped)
 		shadingChar = 'S';
 	else
 		shadingChar = 'F';
 	
 	char colorChar;
-	if ([self.color isEqual:[UIColor redColor]])
+	if (self.color == SetColorRed)
 		colorChar = 'R';
-	else if ([self.color isEqual:[UIColor greenColor]])
+	else if (self.color == SetColorGreen)
 		colorChar = 'G';
 	else
 		colorChar = 'P';
 	
+	NSString* symbol;
+	if (self.symbol == SetSymbolSquiggle)
+		symbol = @"~";
+	else if (self.symbol == SetSymbolDiamond)
+		symbol = @"♢";
+	else
+		symbol = @"0";
+	
 	NSMutableString *retVal = [NSMutableString stringWithFormat:@"%c%c",shadingChar,colorChar];
 	for (int i=0; i<self.number; i++)
-		[retVal appendString:self.symbol];
+		[retVal appendString:symbol];
 	
 	return retVal.copy;
 }
@@ -40,47 +48,28 @@
 	MGSetCard* other1 = otherCards[0];
 	MGSetCard* other2 = otherCards[1];
 	
-	BOOL symOK = FALSE, colorOK = FALSE, shadeOK = FALSE, numOK = FALSE;
-	
-	//Symbols all the same
-	if ([self.symbol isEqualToString:other1.symbol] &&
-			[self.symbol isEqualToString:other2.symbol])
-		symOK = TRUE;
-	//Symbols all different
-	else if (![self.symbol isEqualToString:other1.symbol] &&
-					 ![self.symbol isEqualToString:other2.symbol] &&
-					 ![other1.symbol isEqualToString:other2.symbol])
-		symOK = TRUE;
-	
-	//Colors all the same
-	if ([self.color isEqual:other1.color] &&
-			[self.color isEqual:other2.color])
-		colorOK = TRUE;
-	//Colors all different
-	else if (![self.color isEqual:other1.color] &&
-					 ![self.color isEqual:other2.color] &&
-					 ![other1.color isEqual:other2.color])
-		colorOK = TRUE;
-	
-	//Shading all the same
-	if (self.shading == other1.shading && self.shading == other2.shading)
-		shadeOK = TRUE;
-	//Shading all different
-	else if (self.shading != other1.shading && self.shading != other2.shading && other1.shading != other2.shading)
-		shadeOK = TRUE;
-	
-	//Number all the same
-	if (self.number == other1.number && self.number == other2.number)
-		numOK = TRUE;
-	//Number all different
-	else if (self.number != other1.number && self.number != other2.number && other1.number != other2.number)
-		numOK = TRUE;
-	
-	return (NSUInteger) symOK && colorOK && shadeOK && numOK;
+	SEL props[] = {
+		@selector(symbol),
+		@selector(color),
+		@selector(shading),
+		@selector(number)
+	};
+	for (int i=0; i<4; i++) {
+		//XCode thinks this won't work, but it will, I know what selectors I'm using
+		NSInteger propSelf = [self performSelector:props[i]];
+		NSInteger prop1 = [other1 performSelector:props[i]];
+		NSInteger prop2 = [other2 performSelector:props[i]];
+		if ((propSelf == prop1 && propSelf == prop2) ||
+				(propSelf != prop1 && propSelf != prop2 && prop1 != prop2))
+			; //We're good
+		else
+			return 0;
+	}
+	return 1;
 }
 
 //Designated initializer
--(id)initWithSymbol:(NSString *)symbol number:(NSInteger)number color:(UIColor*)color shading:(float)shading {
+-(id)initWithSymbol:(SetSymbol)symbol number:(NSUInteger)number color:(SetColor)color shading:(SetShading)shading {
 	if (self = [super init]) {
 		self.symbol = symbol;
 		self.number = number;
@@ -90,57 +79,25 @@
 	return self;
 }
 
--(NSAttributedString *)attributedString {
-	
-	NSMutableString* baseStr = [NSMutableString new];
-	for (int i=0; i<self.number; i++)
-		[baseStr appendString:self.symbol];
-	
-	NSDictionary* attributes = @{
-		NSStrokeWidthAttributeName: @-5,
-		NSStrokeColorAttributeName: self.color,
-		NSForegroundColorAttributeName: [self.color colorWithAlphaComponent:self.shading]
-	};
-	
-	return [[NSAttributedString alloc] initWithString:baseStr attributes:attributes];
-}
-
 //GET/SET
-@synthesize symbol = _symbol;
-
--(NSString *)symbol {
-	if (!_symbol) return @"?";
-	return _symbol;
-}
-
--(void)setSymbol:(NSString *)symbol {
-	if ([self.class.validSymbols containsObject:symbol])
+-(void)setSymbol:(SetSymbol)symbol {
+	if (symbol >= SetSymbolSquiggle && symbol <= SetSymbolRacetrack)
 		_symbol = symbol;
 }
 
-@synthesize color = _color;
-
--(UIColor *)color {
-	if (!_color) return UIColor.blackColor;
-	return _color;
-}
-
--(void)setColor:(UIColor *)color {
-	if ([self.class.validColors containsObject:color])
+-(void)setColor:(SetColor)color {
+	if (color >= SetColorRed && color <= SetColorPurple)
 		_color = color;
 }
 
--(void)setNumber:(NSInteger)number {
+-(void)setNumber:(NSUInteger)number {
 	if (number >= SetMinNumber && number <= SetMaxNumber)
 		_number = number;
 }
 
-+(NSArray *)validSymbols {
-	return @[@"▲",@"●",@"■"];
-}
-
-+(NSArray *)validColors {
-	return @[UIColor.redColor,UIColor.greenColor,UIColor.purpleColor];
+-(void)setShading:(SetShading)shading {
+	if (shading >= SetShadingEmpty && shading <= SetShadingFilled)
+		_shading = shading;
 }
 
 @end

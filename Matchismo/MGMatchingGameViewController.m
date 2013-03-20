@@ -32,14 +32,18 @@
 	return 22;
 }
 
+-(void)updateCardView:(MGPlayingCardView *)cardView usingCard:(MGPlayingCard *)card {
+	cardView.suit = card.suit;
+	cardView.rank = card.rank;
+	cardView.faceUp = card.faceUp;
+	cardView.alpha = card.unplayable ? 0.5 : 1.0;
+}
+
 -(void)updateCell:(MGPlayingCardCollectionViewCell *)cell usingCard:(MGPlayingCard *)card {
 	if (![cell isKindOfClass:MGPlayingCardCollectionViewCell.class] ||
 			![card isKindOfClass:MGPlayingCard.class])
 		return;
-	cell.playingCardView.suit = card.suit;
-	cell.playingCardView.rank = card.rank;
-	cell.playingCardView.faceUp = card.faceUp;
-	cell.playingCardView.alpha = card.unplayable ? 0.5 : 1.0;
+	[self updateCardView:cell.playingCardView usingCard:card];
 }
 
 -(BOOL)cell:(MGPlayingCardCollectionViewCell *)cell needsUpdateFromCard:(MGPlayingCard *)card {
@@ -70,7 +74,7 @@
 	[super updateUI];
 	
 	//Only have the mode switch enabled at the start of the game
-	self.modeSwitch.enabled = self.game.numFlips == 0;
+	self.modeSwitch.enabled = self.game.numMoves == 0;
 }
 
 

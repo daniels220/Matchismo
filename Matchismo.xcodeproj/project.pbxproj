@@ -39,8 +39,10 @@
 		65644FE916F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65644FE816F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m */; };
 		6564500E16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6564500D16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m */; };
 		6564501116F6B52E006EB4B0 /* MGSetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6564501016F6B52E006EB4B0 /* MGSetCardView.m */; };
+		656B72BD16F9716400747869 /* MGCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656B72BC16F9716400747869 /* MGCardView.m */; };
 		6577E30616DA83FF00E02F20 /* MGGameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30516DA83FF00E02F20 /* MGGameResult.m */; };
 		6577E30916DA8B3800E02F20 /* MGGameResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */; };
+		657D44C216F8CC3600A43090 /* MGGameMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D44C116F8CC3600A43090 /* MGGameMove.m */; };
 		65D4D23416CC63FA0073D34C /* MGGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23316CC63FA0073D34C /* MGGame.m */; };
 		65D4D23716CC642D0073D34C /* MGMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D23616CC642D0073D34C /* MGMatchingGameViewController.m */; };
 		65D4D27416CC6A330073D34C /* MGSetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D27316CC6A330073D34C /* MGSetCard.m */; };
@@ -102,10 +104,14 @@
 		6564500D16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetCardCollectionViewCell.m; sourceTree = "<group>"; };
 		6564500F16F6B52E006EB4B0 /* MGSetCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSetCardView.h; sourceTree = "<group>"; };
 		6564501016F6B52E006EB4B0 /* MGSetCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSetCardView.m; sourceTree = "<group>"; };
+		656B72BB16F9716400747869 /* MGCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGCardView.h; path = View/MGCardView.h; sourceTree = "<group>"; };
+		656B72BC16F9716400747869 /* MGCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGCardView.m; path = View/MGCardView.m; sourceTree = "<group>"; };
 		6577E30416DA83FF00E02F20 /* MGGameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGameResult.h; sourceTree = "<group>"; };
 		6577E30516DA83FF00E02F20 /* MGGameResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGameResult.m; sourceTree = "<group>"; };
 		6577E30716DA8B3800E02F20 /* MGGameResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGameResultsViewController.h; sourceTree = "<group>"; };
 		6577E30816DA8B3800E02F20 /* MGGameResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGameResultsViewController.m; sourceTree = "<group>"; };
+		657D44C016F8CC3500A43090 /* MGGameMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGameMove.h; sourceTree = "<group>"; };
+		657D44C116F8CC3600A43090 /* MGGameMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGameMove.m; sourceTree = "<group>"; };
 		65D4D22C16CC61210073D34C /* MGCardGameViewController_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGCardGameViewController_Protected.h; sourceTree = "<group>"; };
 		65D4D23116CC63FA0073D34C /* MGGame_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGGame_Protected.h; path = Model/MGGame_Protected.h; sourceTree = "<group>"; };
 		65D4D23216CC63FA0073D34C /* MGGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGGame.h; path = Model/MGGame.h; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 		65644FB016F64234006EB4B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				656B72BB16F9716400747869 /* MGCardView.h */,
+				656B72BC16F9716400747869 /* MGCardView.m */,
 				6564500F16F6B52E006EB4B0 /* MGSetCardView.h */,
 				6564501016F6B52E006EB4B0 /* MGSetCardView.m */,
 				6564500C16F6B524006EB4B0 /* MGSetCardCollectionViewCell.h */,
@@ -310,6 +318,8 @@
 		65E3CEDD16C710DD00DDEA65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				657D44C016F8CC3500A43090 /* MGGameMove.h */,
+				657D44C116F8CC3600A43090 /* MGGameMove.m */,
 				6577E30416DA83FF00E02F20 /* MGGameResult.h */,
 				6577E30516DA83FF00E02F20 /* MGGameResult.m */,
 				65D4D22616CC5FF60073D34C /* Abstract */,
@@ -431,6 +441,8 @@
 				65644FE916F6514D006EB4B0 /* MGPlayingCardCollectionViewCell.m in Sources */,
 				6564500E16F6B524006EB4B0 /* MGSetCardCollectionViewCell.m in Sources */,
 				6564501116F6B52E006EB4B0 /* MGSetCardView.m in Sources */,
+				657D44C216F8CC3600A43090 /* MGGameMove.m in Sources */,
+				656B72BD16F9716400747869 /* MGCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,4 +39,8 @@
 	return randCard;
 }
 
+-(NSUInteger)cardsRemaining {
+	return self.cards.count;
+}
+
 @end

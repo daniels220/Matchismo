@@ -7,12 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MGDeck.h"
 
 @interface MGCardGameViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-
-_abstract @property (nonatomic) NSUInteger startingCardCount;
-_abstract -(void)updateCell:(UICollectionViewCell*)cell usingCard:(MGCard*)card;
-_abstract -(BOOL)cell:(UICollectionViewCell*)cell needsUpdateFromCard:(MGCard*)card;
-
 @end

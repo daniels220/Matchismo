@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Daniel Slomovits. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MGCardView.h"
+#import "MGSetCard.h" //Just for the enums, I swear
 
-@interface MGSetCardView : UIView
+@interface MGSetCardView : MGCardView
 
-@property (strong,nonatomic) UIColor* color;
-@property (strong,nonatomic) NSString* symbol;
-@property (nonatomic) CGFloat shading;
+@property (nonatomic) SetColor color;
+@property (nonatomic) SetSymbol symbol;
+@property (nonatomic) SetShading shading;
 @property (nonatomic) NSUInteger number;
-
-@property (nonatomic) BOOL selected;
 
 @end

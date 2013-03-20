@@ -13,20 +13,11 @@
 
 -(id)init {
 	if (self = [super init]) {
-		for (NSString* symbol in MGSetCard.validSymbols)
-			for (int number = SetMinNumber; number <= SetMaxNumber; number++)
-				for (UIColor* color in MGSetCard.validColors) {
-					[self addCard:
-					 [[MGSetCard alloc] initWithSymbol:symbol number:number
-																			 color:color shading:SetShadingEmpty]];
-					[self addCard:
-					 [[MGSetCard alloc] initWithSymbol:symbol number:number
-																			 color:color shading:SetShadingShaded]];
-					[self addCard:
-					 [[MGSetCard alloc] initWithSymbol:symbol number:number
-																			 color:color shading:SetShadingFilled]];
-			}
-				
+		for (NSInteger symbol = SetSymbolSquiggle; symbol <= SetSymbolRacetrack; symbol++)
+			for (NSUInteger number = SetMinNumber; number <= SetMaxNumber; number++)
+				for (NSInteger color = SetColorRed; color <= SetColorPurple; color++)
+					for (NSInteger shading = SetShadingEmpty; shading <= SetShadingFilled; shading++)
+						[self addCard:[[MGSetCard alloc] initWithSymbol:symbol number:number color:color shading:shading]];
 	}
 	return self;
 }

@@ -17,33 +17,46 @@
 #import "MGSetCardView.h"
 
 @interface MGSetGameViewController ()
-
+//Override type of self.game
 @property (strong,nonatomic) MGSetGame* game;
+
+@property (nonatomic,readwrite) NSUInteger startingCardCount;
+
+@property (weak, nonatomic) IBOutlet UILabel *matchMoveLabel;
+@property (strong, nonatomic) IBOutletCollection(MGSetCardView) NSArray *matchMoveDisplayCards;
+@property (weak, nonatomic) IBOutlet UILabel *pickMoveLabel;
+@property (weak, nonatomic) IBOutlet MGSetCardView *pickMoveDisplayCard;
 
 @end
 
 @implementation MGSetGameViewController
 
+@synthesize startingCardCount = _startingCardCount;
 -(NSUInteger)startingCardCount {
-	return 24;
+	if (_startingCardCount == 0) _startingCardCount = 12;
+	return _startingCardCount;
+}
+
+-(void)updateCardView:(MGSetCardView *)cardView usingCard:(MGSetCard *)card {
+	cardView.color = card.color;
+	cardView.symbol = card.symbol;
+	cardView.shading = card.shading;
+	cardView.number = card.number;
+	cardView.selected = card.faceUp;
+	cardView.hidden = card.unplayable;
 }
 
 -(void)updateCell:(MGSetCardCollectionViewCell *)cell usingCard:(MGSetCard *)card {
 	if (![cell isKindOfClass:[MGSetCardCollectionViewCell class]] || ![card isKindOfClass:[MGSetCard class]])
 		return;
-	cell.setCardView.color = card.color;
-	cell.setCardView.symbol = card.symbol;
-	cell.setCardView.shading = card.shading;
-	cell.setCardView.number = card.number;
-	cell.setCardView.selected = card.faceUp;
-	cell.hidden = card.unplayable;
+	[self updateCardView:cell.setCardView usingCard:card];
 }
 
 -(BOOL)cell:(MGSetCardCollectionViewCell *)cell needsUpdateFromCard:(MGSetCard *)card {
 	if (![cell isKindOfClass:MGSetCardCollectionViewCell.class] || ![card isKindOfClass:MGSetCard.class])
 		return NO;
 	MGSetCardView* view = cell.setCardView;
-	return view.number != card.number || view.shading != card.shading || ![view.symbol isEqualToString:card.symbol] || ![view.color isEqual:card.color] || view.selected != card.faceUp || view.hidden != card.unplayable;
+	return view.number != card.number || view.shading != card.shading || view.symbol != card.symbol || view.color != card.color || view.selected != card.faceUp || view.hidden != card.unplayable;
 }
 
 -(MGSetGame *)game {
@@ -53,5 +66,8 @@
 	return super.game;
 }
 
+- (IBAction)theresNoSet:(UIButton *)sender {
+	
+}
 
 @end

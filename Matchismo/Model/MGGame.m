@@ -7,8 +7,6 @@
 //
 
 #import "MGGame_Protected.h"
-#import "MGDeck.h"
-#import "MGCard.h"
 
 @interface MGGame()
 
@@ -21,8 +19,9 @@
 //Designated initializer
 -(id)initWithCardCount:(NSUInteger)count usingDeck:(MGDeck *)deck {
 	if (self = [super init]) {
+		_deck = deck;
 		for (int i=0; i<count; i++)
-			[self.cards addObject:[deck drawRandomCard]];
+			[self.cards addObject:[self.deck drawRandomCard]];
 		self.result = [[MGGameResult alloc] initWithGameType:self.typeString];
 	}
 	return self;
@@ -59,6 +58,15 @@
 	return self.cards[index];
 }
 
+-(void)removeCardAtIndex:(NSUInteger)index {
+	[self.cards removeObjectAtIndex:index];
+}
+
+-(void)dealCard {
+	if (self.deck.cardsRemaining > 0)
+		[self.cards addObject:[self.deck drawRandomCard]];
+}
+
 -(NSMutableArray *)pastMoves {
 	if (!_pastMoves) _pastMoves = [NSMutableArray new];
 	return _pastMoves;
@@ -72,10 +80,10 @@
 	return self.pastMoves.count;
 }
 
--(id)movesAgo:(NSInteger)movesAgo {
-	if ((NSInteger)(self.pastMoves.count) - 1 - movesAgo < 0)
+-(MGGameMove *)moveNumber:(NSInteger)moveNumber {
+	if (moveNumber > self.numMoves)
 		return nil;
-	return self.pastMoves[self.pastMoves.count-1-movesAgo];
+	return self.pastMoves[moveNumber];
 }
 
 -(void)flipCardAtIndex:(NSUInteger)index {
@@ -96,10 +104,10 @@
 	cardToFlip.faceUp = YES;
 	self.score -= self.flipCost;
 	
-	UIView* pastMove;
+	MGGameMove* pastMove;
 	NSArray* allCards = [otherCards arrayByAddingObject:cardToFlip];
 	
-	if (otherCards.count >= self.maxCardsUp - 1) {
+	if (otherCards.count == self.maxCardsUp - 1) {
 		NSInteger score = [cardToFlip match:otherCards];
 		if (score) {
 			cardToFlip.unplayable = YES;
@@ -113,10 +121,10 @@
 				card.faceUp = NO;
 			self.score -= self.mismatchPenalty;
 		} //else did not match
-		pastMove = [self moveWithCards:allCards matchedForScore:score];
+		pastMove = [[MGGameMove alloc] initWithCards:allCards score:score];
 	} //if should match
 	else {
-		pastMove = [self moveByFlippingSingleCard:cardToFlip];
+		pastMove = [[MGGameMove alloc] initWithCards:@[cardToFlip] score:0];
 	}
 
 	//There's always a move to record
