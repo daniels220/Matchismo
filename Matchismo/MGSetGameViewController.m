@@ -66,8 +66,17 @@
 	return super.game;
 }
 
+#define YES_THERE_IS_PENALTY 2
 - (IBAction)theresNoSet:(UIButton *)sender {
-	
+	//If there actually *is* a set
+	if (self.game.gameState == PLAYING_STATE) {
+		self.game.score -= YES_THERE_IS_PENALTY;
+		[[[UIAlertView alloc] initWithTitle:@"Wrong!" message:@"There's still a set here. Can you find it?" delegate:nil cancelButtonTitle:@"Maybe..." otherButtonTitles:nil] show];
+		[self updateUI];
+	}
+	else
+		for (int i=0;i<3;i++)
+			[self dealCard];
 }
 
 @end

@@ -9,4 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MGCardGameViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
+-(void)dealCard;
+
 @end

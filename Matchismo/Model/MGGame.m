@@ -58,13 +58,18 @@
 	return self.cards[index];
 }
 
--(void)removeCardAtIndex:(NSUInteger)index {
-	[self.cards removeObjectAtIndex:index];
+-(void)removeCard:(MGCard*)card {
+	[self.cards removeObject:card];
+}
+
+-(BOOL)canDealCard {
+	return self.deck.cardsRemaining > 0;
 }
 
 -(void)dealCard {
-	if (self.deck.cardsRemaining > 0)
+	if ([self canDealCard])
 		[self.cards addObject:[self.deck drawRandomCard]];
+	self.gameState = [self canContinue] ? PLAYING_STATE : STUCK_STATE;
 }
 
 -(NSMutableArray *)pastMoves {
@@ -144,8 +149,6 @@
 	if (self.gameState == DONE_STATE || self.gameState == STUCK_STATE) {
 		[self.result endGameWithScore:self.score];
 		[self.result synchronize];
-		for (MGCard* card in self.cards)
-			card.unplayable = YES;
 	}
 	
 }

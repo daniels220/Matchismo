@@ -28,8 +28,10 @@ typedef enum {
 -(NSArray*) playableFaceUpCards;
 -(void) flipCardAtIndex:(NSUInteger) index;
 -(MGCard*) cardAtIndex:(NSUInteger) index;
--(void) removeCardAtIndex:(NSUInteger) index;
+-(void) removeCard:(MGCard*) card;
+-(BOOL) canDealCard;
 -(void) dealCard;
+-(BOOL)canContinue;
 
 -(MGGameMove*) lastMove;
 -(NSInteger) numMoves;

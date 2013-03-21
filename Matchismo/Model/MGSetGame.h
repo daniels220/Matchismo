@@ -10,4 +10,6 @@
 
 @interface MGSetGame : MGGame
 
+@property (nonatomic,readwrite) NSInteger score;
+
 @end

@@ -31,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *matchMoveLabel;
 @property (weak, nonatomic) IBOutlet MGCardView *matchMoveCard1;
 @property (weak, nonatomic) IBOutlet MGCardView *matchMoveCard2;
-@property (strong, nonatomic) NSArray *matchMoveDisplayCards;
 
 @end
 
@@ -39,10 +38,6 @@
 
 - (void)viewDidLoad {
 	[self updateUI];
-}
-
--(NSArray *)matchMoveDisplayCards {
-	return @[self.matchMoveCard1,self.matchMoveCard2,self.pickMoveDisplayCard];
 }
 
 #pragma mark IBActions
@@ -99,19 +94,10 @@
 	self.historySlider.maximumValue = self.game.numMoves - 0.01;
 	self.historySlider.value = self.game.numMoves - 0.01;
 	
-	//Update state of cards
-	for (UICollectionViewCell* cell in self.cardCollection.visibleCells) {
-		MGCard* card = [self.game cardAtIndex:[self.cardCollection indexPathForCell:cell].item];
-		if ([self cell:cell needsUpdateFromCard:card])
-			[UIView transitionWithView:cell
-												duration:0.25
-												 options:UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionLayoutSubviews
-											animations:^{ [self updateCell:cell usingCard:card]; }
-											completion:nil];
-	}
+	[self updateAllCards];
 	
 	//Check if the game is done and pop up an alert view
-	if (self.game.gameState == DONE_STATE || self.game.gameState == STUCK_STATE) {
+	if (self.game.gameState == DONE_STATE || (self.game.gameState == STUCK_STATE && !self.game.canDealCard)) {
 		NSString* title;
 		if (self.game.gameState == DONE_STATE)
 			title = @"You Win!";
@@ -133,34 +119,34 @@
 		self.pickMoveLabel.hidden = YES;
 		self.pickMoveDisplayCard.hidden = YES;
 		self.matchMoveLabel.hidden = YES;
-		for (MGCardView* cardView in self.matchMoveDisplayCards)
-			cardView.hidden = YES;
+		self.matchMoveCard1.hidden = YES;
+		self.matchMoveCard2.hidden = YES;
 	}
 	//"Pick"-type moves
 	else if (move.cards.count < self.game.maxCardsUp) {
 		//Update the card display
 		[self updateCardView:self.pickMoveDisplayCard usingCard:[move.cards lastObject]];
-		self.pickMoveDisplayCard.selected = NO;
-		self.pickMoveDisplayCard.faceUp	= YES;
+		[self updateCardViewForStaticDisplay:self.pickMoveDisplayCard];
 		//Hide the stuff that's only used for match-type moves
 		self.matchMoveLabel.hidden = YES;
-		for (MGCardView* cardView in self.matchMoveDisplayCards)
-			cardView.hidden = YES;
+		self.matchMoveCard1.hidden = YES;
+		self.matchMoveCard2.hidden = YES;
 		//Show the stuff that's used for pick-type moves
 		self.pickMoveLabel.hidden = NO;
-		self.pickMoveDisplayCard.hidden = NO;
 	}
 	//Moves where a match was made
 	else {
-		for (NSInteger i=0; i<self.game.maxCardsUp; i++) {
-			[self updateCardView:self.matchMoveDisplayCards[i] usingCard:move.cards[i]];
-			[self.matchMoveDisplayCards[i] setFaceUp:YES];
-			[self.matchMoveDisplayCards[i] setSelected:NO];
-			[self.matchMoveDisplayCards[i] setHidden:NO];
+		[self updateCardView:self.matchMoveCard1 usingCard:move.cards[0]];
+		[self updateCardViewForStaticDisplay:self.matchMoveCard1];
+		[self updateCardView:self.matchMoveCard2 usingCard:move.cards[1]];
+		[self updateCardViewForStaticDisplay:self.matchMoveCard2];
+		if (move.cards.count == 3) {
+			[self updateCardView:self.pickMoveDisplayCard usingCard:move.cards[2]];
+			[self updateCardViewForStaticDisplay:self.pickMoveDisplayCard];
 		}
-		for (NSInteger i=self.game.maxCardsUp; i<self.matchMoveDisplayCards.count; i++)
-			[self.matchMoveDisplayCards[i] setHidden:YES];
-		
+		else
+			self.pickMoveDisplayCard.hidden = YES;
+				
 		self.matchMoveLabel.text = move.score > 0 ?
 		[NSString stringWithFormat:@"Match! %d point%c",move.score,move.score == 1 ? ' ':'s'] :
 		[NSString stringWithFormat:@"Don't match! -%d point%c",self.game.mismatchPenalty,move.score == 1 ? ' ':'s'];
@@ -170,28 +156,54 @@
 	}
 }
 
+-(void)updateCardViewForStaticDisplay:(MGCardView*)cardView {
+	cardView.hidden = NO;
+	cardView.faceUp = YES;
+	cardView.selected = NO;
+}
+
 -(void)updateSelectedDisplayUsingCards:(NSArray *)cards {
 	if (cards.count == 1) {
 		[self updateCardView:self.firstSelectedCard usingCard:cards[0]];
-		self.firstSelectedCard.selected = NO;
-		self.firstSelectedCard.faceUp = YES;
+		[self updateCardViewForStaticDisplay:self.firstSelectedCard];
 		self.secondSelectedCard.hidden = YES;
-		self.firstSelectedCard.hidden = NO;
 	}
 	else if (cards.count == 2) {
 		[self updateCardView:self.firstSelectedCard usingCard:cards[0]];
-		self.firstSelectedCard.selected = NO;
-		self.firstSelectedCard.faceUp = YES;
+		[self updateCardViewForStaticDisplay:self.firstSelectedCard];
 		[self updateCardView:self.secondSelectedCard usingCard:cards[1]];
-		self.secondSelectedCard.selected = NO;
-		self.secondSelectedCard.faceUp = YES;
-		self.firstSelectedCard.hidden = NO;
-		self.secondSelectedCard.hidden = NO;
+		[self updateCardViewForStaticDisplay:self.secondSelectedCard];
 	}
 	else {
 		self.firstSelectedCard.hidden = YES;
 		self.secondSelectedCard.hidden = YES;
 	}
+}
+
+-(void)updateAllCards {
+	//Update state of cards
+	for (UICollectionViewCell* cell in self.cardCollection.visibleCells) {
+		MGCard* card = [self.game cardAtIndex:[self.cardCollection indexPathForCell:cell].item];
+		if (card.unplayable) {
+			[self.game removeCard:card];
+			[self.cardCollection deleteItemsAtIndexPaths:@[[self.cardCollection indexPathForCell:cell]]];
+			
+			if (self.game.canDealCard)
+				[self dealCard];
+		}
+		else if ([self cell:cell needsUpdateFromCard:card])
+			[UIView transitionWithView:cell
+												duration:0.25
+												 options:UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionLayoutSubviews
+											animations:^{ [self updateCell:cell usingCard:card]; }
+											completion:nil];
+	}
+}
+
+-(void)dealCard {
+	[self.game dealCard];
+	NSUInteger indices[] = {0 , self.game.numCards-1};
+	[self.cardCollection insertItemsAtIndexPaths:@[[[NSIndexPath alloc] initWithIndexes:indices length:2]]];
 }
 
 @end
