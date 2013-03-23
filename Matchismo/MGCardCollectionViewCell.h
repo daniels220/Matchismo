@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MGSetCardView.h"
+#import "MGCardView.h"
 
-@interface MGSetCardCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet MGSetCardView *setCardView;
+@interface MGCardCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet MGCardView *cardView;
 @end

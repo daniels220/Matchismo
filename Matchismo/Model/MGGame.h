@@ -37,6 +37,8 @@ typedef enum {
 -(NSInteger) numMoves;
 -(MGGameMove*) moveNumber:(NSInteger) moveNumber;
 
+@property (strong,nonatomic,readonly) NSArray* pastMatches;
+
 -(id) initWithCardCount:(NSUInteger)count usingDeck:(MGDeck*)deck;
 -(NSString*) typeString;
 

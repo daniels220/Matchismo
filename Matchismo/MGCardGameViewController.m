@@ -12,12 +12,13 @@
 #import "MGGame.h"
 #import "MGGameResult.h"
 #import "MGCardView.h"
+#import "MGCardCollectionViewCell.h"
+#import "MGMatchCollectionViewCell.h"
 
 @interface MGCardGameViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollection;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *logLabel;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 - (IBAction)moveInHistory:(UISlider *)sender;
@@ -37,7 +38,14 @@
 @implementation MGCardGameViewController
 
 - (void)viewDidLoad {
+	[self setupUI];
 	[self updateUI];
+}
+
+-(void)setupUI {
+//	for (NSLayoutConstraint* constraint in self.view.constraints) {
+//		if (constraint.)
+//	}
 }
 
 #pragma mark IBActions
@@ -65,16 +73,55 @@
 
 #pragma mark CollectionViewDelegate/DataSource
 
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+	return 2;
+}
+
+#define CARDS_SECTION 0
+#define MATCHES_SECTION 1
 -(NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
-	return self.game.numCards;
+	if (section == CARDS_SECTION)
+		return self.game.numCards;
+	else if (section == MATCHES_SECTION)
+		return self.game.pastMatches.count;
+	else
+		return 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
-	
-	[self updateCell:cell usingCard:[self.game cardAtIndex:indexPath.item]];
 		
-	return cell;
+	if (indexPath.section == CARDS_SECTION) {
+		MGCardCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
+		
+		[self updateCell:cell usingCard:[self.game cardAtIndex:indexPath.item]];
+		return cell;
+	}
+	else if (indexPath.section == MATCHES_SECTION) {
+		MGMatchCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"matchCell" forIndexPath:indexPath];
+		NSArray* match = self.game.pastMatches[indexPath.item];
+		
+		[self updateCardView:cell.twoCardViews[0] usingCard:match[0]];
+		[self updateCardView:cell.twoCardViews[1] usingCard:match[1]];
+		if (match.count == 3)
+			[self updateCardView:cell.thirdCardView usingCard:match[2]];
+		else {
+			cell.thirdCardView.hidden = YES;
+			CGRect bounds = cell.bounds;
+#pragma message("Magic number...")
+			bounds.size.width = 84;
+			cell.bounds = bounds;
+		}
+		
+		return cell;
+	}
+	return nil;
+}
+
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+	if (kind == UICollectionElementKindSectionHeader && indexPath.section == MATCHES_SECTION) {
+		return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"matchesHeader" forIndexPath:indexPath];
+	}
+	return nil;
 }
 
 #pragma mark updateUI
@@ -95,6 +142,9 @@
 	self.historySlider.value = self.game.numMoves - 0.01;
 	
 	[self updateAllCards];
+
+	[self.cardCollection reloadData];
+//	[self.cardCollection reloadSections:[[NSIndexSet alloc] initWithIndex:MATCHES_SECTION]];
 	
 	//Check if the game is done and pop up an alert view
 	if (self.game.gameState == DONE_STATE || (self.game.gameState == STUCK_STATE && !self.game.canDealCard)) {
@@ -154,6 +204,10 @@
 		self.pickMoveLabel.hidden = YES;
 		self.matchMoveLabel.hidden = NO;
 	}
+}
+
+-(void)updateCell:(MGCardCollectionViewCell *)cell usingCard:(MGCard *)card {
+	[self updateCardView:cell.cardView usingCard:card];
 }
 
 -(void)updateCardViewForStaticDisplay:(MGCardView*)cardView {

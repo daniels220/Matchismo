@@ -10,6 +10,8 @@
 
 @interface MGGame()
 
+@property (strong,nonatomic) NSMutableArray* allMatches;
+
 @end
 
 @implementation MGGame
@@ -91,6 +93,15 @@
 	return self.pastMoves[moveNumber];
 }
 
+-(NSArray *)pastMatches {
+	return self.allMatches.copy;
+}
+
+-(NSMutableArray *)allMatches {
+	if (!_allMatches) _allMatches = [NSMutableArray new];
+	return _allMatches;
+}
+
 -(void)flipCardAtIndex:(NSUInteger)index {
 	MGCard* cardToFlip = self.cards[index];
 	
@@ -120,14 +131,16 @@
 				card.unplayable = YES;
 			
 			self.score += score * self.matchBonus;
-		} //if matched
+			//Add this move to the past-matches array
+			[self.allMatches addObject:[otherCards arrayByAddingObject:cardToFlip]];
+		} //end if matched
 		else {
 			for (MGCard* card in otherCards)
 				card.faceUp = NO;
 			self.score -= self.mismatchPenalty;
-		} //else did not match
+		} //end else did not match
 		pastMove = [[MGGameMove alloc] initWithCards:allCards score:score];
-	} //if should match
+	} // end if should match
 	else {
 		pastMove = [[MGGameMove alloc] initWithCards:@[cardToFlip] score:0];
 	}

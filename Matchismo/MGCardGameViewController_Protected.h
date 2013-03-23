@@ -20,7 +20,6 @@
 - (IBAction)deal;
 
 _abstract @property (nonatomic) NSUInteger startingCardCount;
-_abstract -(void)updateCell:(UICollectionViewCell*)cell usingCard:(MGCard*)card;
 _abstract -(void)updateCardView:(MGCardView *)cardView usingCard:(MGCard *)card;
 _abstract -(BOOL)cell:(UICollectionViewCell*)cell needsUpdateFromCard:(MGCard*)card;
 _abstract -(void)updateMoveDisplayUsingMove:(MGGameMove*)move;

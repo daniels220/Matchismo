@@ -12,7 +12,7 @@
 #import "MGMatchingGame.h"
 #import "MGPlayingCardDeck.h"
 #import "MGPlayingCard.h"
-#import "MGPlayingCardCollectionViewCell.h"
+#import "MGCardCollectionViewCell.h"
 #import "MGPlayingCardView.h"
 
 @interface MGMatchingGameViewController ()
@@ -33,24 +33,18 @@
 }
 
 -(void)updateCardView:(MGPlayingCardView *)cardView usingCard:(MGPlayingCard *)card {
+	if (![card isKindOfClass:MGPlayingCard.class]) return;
 	cardView.suit = card.suit;
 	cardView.rank = card.rank;
 	cardView.faceUp = card.faceUp;
 	cardView.alpha = card.unplayable ? 0.5 : 1.0;
 }
 
--(void)updateCell:(MGPlayingCardCollectionViewCell *)cell usingCard:(MGPlayingCard *)card {
-	if (![cell isKindOfClass:MGPlayingCardCollectionViewCell.class] ||
-			![card isKindOfClass:MGPlayingCard.class])
-		return;
-	[self updateCardView:cell.playingCardView usingCard:card];
-}
-
--(BOOL)cell:(MGPlayingCardCollectionViewCell *)cell needsUpdateFromCard:(MGPlayingCard *)card {
-	if (![cell isKindOfClass:MGPlayingCardCollectionViewCell.class] ||
+-(BOOL)cell:(MGCardCollectionViewCell *)cell needsUpdateFromCard:(MGPlayingCard *)card {
+	if (![cell.cardView isKindOfClass:MGPlayingCardView.class] ||
 			![card isKindOfClass:MGPlayingCard.class])
 		return NO;
-	MGPlayingCardView* view = cell.playingCardView;
+	MGPlayingCardView* view = (MGPlayingCardView*) cell.cardView;
 	return ![view.suit isEqualToString:card.suit] || view.rank != card.rank || view.faceUp != card.faceUp || (view.alpha == 1.0) == card.unplayable;
 }
 

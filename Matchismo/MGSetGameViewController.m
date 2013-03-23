@@ -13,7 +13,7 @@
 #import "MGSetCard.h"
 #import "MGSetDeck.h"
 #import "MGSetGame.h"
-#import "MGSetCardCollectionViewCell.h"
+#import "MGCardCollectionViewCell.h"
 #import "MGSetCardView.h"
 
 @interface MGSetGameViewController ()
@@ -46,16 +46,11 @@
 	cardView.hidden = card.unplayable;
 }
 
--(void)updateCell:(MGSetCardCollectionViewCell *)cell usingCard:(MGSetCard *)card {
-	if (![cell isKindOfClass:[MGSetCardCollectionViewCell class]] || ![card isKindOfClass:[MGSetCard class]])
-		return;
-	[self updateCardView:cell.setCardView usingCard:card];
-}
-
--(BOOL)cell:(MGSetCardCollectionViewCell *)cell needsUpdateFromCard:(MGSetCard *)card {
-	if (![cell isKindOfClass:MGSetCardCollectionViewCell.class] || ![card isKindOfClass:MGSetCard.class])
+-(BOOL)cell:(MGCardCollectionViewCell *)cell needsUpdateFromCard:(MGSetCard *)card {
+	if (![card isKindOfClass:MGSetCard.class] ||
+			![cell.cardView isKindOfClass:MGSetCardView.class])
 		return NO;
-	MGSetCardView* view = cell.setCardView;
+	MGSetCardView* view = (MGSetCardView*) cell.cardView;
 	return view.number != card.number || view.shading != card.shading || view.symbol != card.symbol || view.color != card.color || view.selected != card.faceUp || view.hidden != card.unplayable;
 }
 
