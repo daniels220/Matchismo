@@ -28,9 +28,6 @@
 @implementation MGMatchingGameViewController
 
 //GET/SET
--(NSUInteger)startingCardCount {
-	return 22;
-}
 
 -(void)updateCardView:(MGPlayingCardView *)cardView usingCard:(MGPlayingCard *)card {
 	if (![card isKindOfClass:MGPlayingCard.class]) return;
@@ -48,10 +45,16 @@
 	return ![view.suit isEqualToString:card.suit] || view.rank != card.rank || view.faceUp != card.faceUp || (view.alpha == 1.0) == card.unplayable;
 }
 
+-(CGSize)sizeForCardCell {
+	return CGSizeMake(60,80);
+}
+
+-(CGSize)sizeForMatchCellWithCards:(NSUInteger)numCards {
+	return CGSizeMake(numCards*30+(numCards-1)*4, 40);
+}
+
 -(MGMatchingGame *)game {
-	if (!super.game) super.game = [[MGMatchingGame alloc]
-											 initWithCardCount:self.startingCardCount
-											 usingDeck:[MGPlayingCardDeck new]];
+	if (!super.game) super.game = [MGMatchingGame new];
 	super.game.maxCardsUp = self.modeSwitch.selectedSegmentIndex == 0 ? 2 : 3;
 	return super.game;
 }

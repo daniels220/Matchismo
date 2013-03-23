@@ -8,9 +8,19 @@
 
 #import "MGSetGame.h"
 #import "MGGame_Protected.h"
+#import "MGSetDeck.h"
 #import "MGSetCard.h"
 
 @implementation MGSetGame
+
+-(MGDeck *)deck {
+	if (!super.deck) super.deck = [MGSetDeck new];
+	return super.deck;
+}
+
+-(NSUInteger)cardsToDeal {
+	return 12;
+}
 
 -(NSString *)typeString {
 	return @"Set";

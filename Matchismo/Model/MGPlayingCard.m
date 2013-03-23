@@ -17,22 +17,23 @@
 }
 
 -(NSUInteger)match:(NSArray *)otherCards {
-	int suitMatches = 0;
-	int rankMatches = 0;
-	MGPlayingCard* prev = self;
+	BOOL allRanksMatch = YES;
+	BOOL allSuitsMatch = YES;
 	for (MGPlayingCard* otherCard in otherCards) {
-		if ([otherCard.suit isEqualToString:prev.suit])
-			suitMatches++;
-		else if (otherCard.rank == prev.rank)
-			rankMatches++;
-		//Stop immediately if any cards don't match
-		else
-			return 0;
+		if (![otherCard.suit isEqualToString:self.suit])
+			allSuitsMatch = NO;
+		if (otherCard.rank != self.rank)
+			allRanksMatch = NO;
 	}
-	//1 suit match == 1, 1 rank match == 4
-	//each additional suit match doubles
-	//each additional rank match quadruples
-	return pow(2,fmax(0,suitMatches-1))*pow(4,rankMatches);
+	//All ranks match, for 2 cards is worth 4 points, for 3 cards is worth 16 points, etc
+	if (allRanksMatch)
+		return pow(4,otherCards.count);
+	//All suits match is worth 1 point for 2 cards, 2 for 3, 4 for 4, etc.
+	else if (allSuitsMatch)
+		return pow(2,otherCards.count-1);
+	//No complete match
+	else
+		return 0;
 }
 
 //INITIALIZERS

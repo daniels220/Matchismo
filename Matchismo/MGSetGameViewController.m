@@ -20,22 +20,9 @@
 //Override type of self.game
 @property (strong,nonatomic) MGSetGame* game;
 
-@property (nonatomic,readwrite) NSUInteger startingCardCount;
-
-@property (weak, nonatomic) IBOutlet UILabel *matchMoveLabel;
-@property (strong, nonatomic) IBOutletCollection(MGSetCardView) NSArray *matchMoveDisplayCards;
-@property (weak, nonatomic) IBOutlet UILabel *pickMoveLabel;
-@property (weak, nonatomic) IBOutlet MGSetCardView *pickMoveDisplayCard;
-
 @end
 
 @implementation MGSetGameViewController
-
-@synthesize startingCardCount = _startingCardCount;
--(NSUInteger)startingCardCount {
-	if (_startingCardCount == 0) _startingCardCount = 12;
-	return _startingCardCount;
-}
 
 -(void)updateCardView:(MGSetCardView *)cardView usingCard:(MGSetCard *)card {
 	cardView.color = card.color;
@@ -54,20 +41,27 @@
 	return view.number != card.number || view.shading != card.shading || view.symbol != card.symbol || view.color != card.color || view.selected != card.faceUp || view.hidden != card.unplayable;
 }
 
+-(CGSize)sizeForCardCell {
+	return CGSizeMake(80,60);
+}
+
+-(CGSize)sizeForMatchCellWithCards:(NSUInteger)numCards {
+	return CGSizeMake(numCards*40+(numCards-1)*4, 30);
+}
+
 -(MGSetGame *)game {
-	if (!super.game) super.game = [[MGSetGame alloc]
-																 initWithCardCount:self.startingCardCount
-																 usingDeck:[MGSetDeck new]];
+	if (!super.game) super.game = [MGSetGame new];
 	return super.game;
 }
 
 #define YES_THERE_IS_PENALTY 2
 - (IBAction)theresNoSet:(UIButton *)sender {
+	self.game.lastFlipWasMatch = NO;
 	//If there actually *is* a set
-	if (self.game.gameState == PLAYING_STATE) {
+	if (self.game.canContinue) {
 		self.game.score -= YES_THERE_IS_PENALTY;
 		[[[UIAlertView alloc] initWithTitle:@"Wrong!" message:@"There's still a set here. Can you find it?" delegate:nil cancelButtonTitle:@"Maybe..." otherButtonTitles:nil] show];
-		[self updateUI];
+		self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
 	}
 	else
 		for (int i=0;i<3;i++)

@@ -75,13 +75,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xbc-Ed-KAA">
                                     <size key="itemSize" width="60" height="80"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="30"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="ILj-dn-YaL" customClass="MGCardCollectionViewCell">
-                                        <rect key="frame" x="20" y="20" width="60" height="80"/>
+                                        <rect key="frame" x="20" y="50" width="60" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
@@ -101,7 +101,66 @@
                                             <outlet property="cardView" destination="XVk-6N-N9V" id="3bQ-Ru-4EK"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="matchCell" id="H6j-Zr-xQG" customClass="MGMatchCollectionViewCell">
+                                        <rect key="frame" x="90" y="70" width="98" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJM-Ul-zlw" customClass="MGPlayingCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" type="user" id="QvK-Go-Ymk"/>
+                                                    </constraints>
+                                                </view>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcw-46-h5O" customClass="MGPlayingCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" type="user" id="lGc-RG-5Dt"/>
+                                                    </constraints>
+                                                </view>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Otw-fy-X4G" customClass="MGPlayingCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" type="user" id="2aB-mg-BBB"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Otw-fy-X4G" firstAttribute="bottom" secondItem="H6j-Zr-xQG" secondAttribute="bottom" type="default" id="B6N-ea-xQ3"/>
+                                            <constraint firstItem="rJM-Ul-zlw" firstAttribute="bottom" secondItem="H6j-Zr-xQG" secondAttribute="bottom" type="default" id="DYH-tN-LuT"/>
+                                            <constraint firstItem="rJM-Ul-zlw" firstAttribute="top" secondItem="H6j-Zr-xQG" secondAttribute="top" type="default" id="FG4-bs-pAg"/>
+                                            <constraint firstAttribute="centerX" secondItem="xcw-46-h5O" secondAttribute="centerX" type="user" id="XGZ-vS-2zp"/>
+                                            <constraint firstItem="xcw-46-h5O" firstAttribute="bottom" secondItem="H6j-Zr-xQG" secondAttribute="bottom" type="default" id="ikT-iW-oja"/>
+                                            <constraint firstItem="Otw-fy-X4G" firstAttribute="trailing" secondItem="H6j-Zr-xQG" secondAttribute="trailing" type="user" id="pp1-yA-fY6"/>
+                                            <constraint firstItem="rJM-Ul-zlw" firstAttribute="leading" secondItem="H6j-Zr-xQG" secondAttribute="leading" type="user" id="ppp-ke-QJ5"/>
+                                            <constraint firstItem="Otw-fy-X4G" firstAttribute="top" secondItem="H6j-Zr-xQG" secondAttribute="top" type="default" id="vTh-bD-cWP"/>
+                                            <constraint firstItem="xcw-46-h5O" firstAttribute="top" secondItem="H6j-Zr-xQG" secondAttribute="top" type="default" id="yJB-3H-8cn"/>
+                                        </constraints>
+                                        <size key="customSize" width="98" height="40"/>
+                                        <connections>
+                                            <outlet property="thirdCardView" destination="xcw-46-h5O" id="Aoe-Hw-G1U"/>
+                                            <outletCollection property="twoCardViews" destination="rJM-Ul-zlw" id="3HL-Ho-cE1"/>
+                                            <outletCollection property="twoCardViews" destination="Otw-fy-X4G" id="7JB-XV-1rZ"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="matchesHeader" id="qem-dF-HAr">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Matches:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM0-fW-Nr9">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="CM0-fW-Nr9" firstAttribute="centerX" secondItem="qem-dF-HAr" secondAttribute="centerX" type="default" id="4vI-5u-qj1"/>
+                                        <constraint firstItem="CM0-fW-Nr9" firstAttribute="top" secondItem="qem-dF-HAr" secondAttribute="top" constant="4" id="WR2-CB-CpH"/>
+                                    </constraints>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="WyP-9T-0Ms"/>
                                     <outlet property="delegate" destination="2" id="XHr-Nv-T0t"/>
@@ -252,10 +311,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="l6n-fZ-49e" customClass="MGCardCollectionViewCell">
-                                        <rect key="frame" x="20" y="50" width="80" height="61"/>
+                                        <rect key="frame" x="20" y="50" width="80" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRu-Ql-138" customClass="MGSetCardView"/>
@@ -268,6 +327,7 @@
                                             <constraint firstItem="ZRu-Ql-138" firstAttribute="bottom" secondItem="l6n-fZ-49e" secondAttribute="bottom" type="default" id="j2P-TX-Gd4"/>
                                             <constraint firstItem="ZRu-Ql-138" firstAttribute="leading" secondItem="l6n-fZ-49e" secondAttribute="leading" type="default" id="oIt-I5-6gX"/>
                                         </constraints>
+                                        <size key="customSize" width="80" height="60"/>
                                         <connections>
                                             <outlet property="cardView" destination="ZRu-Ql-138" id="HFp-0s-Yf2"/>
                                         </connections>
@@ -279,31 +339,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gua-Xd-oLI" customClass="MGSetCardView"/>
-                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4p-MC-si9" customClass="MGSetCardView"/>
-                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-em-Fbd" customClass="MGSetCardView"/>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gua-Xd-oLI" customClass="MGSetCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" type="user" id="9Ix-j8-oj3"/>
+                                                    </constraints>
+                                                </view>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4p-MC-si9" customClass="MGSetCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" type="user" id="FVa-rW-0sX"/>
+                                                    </constraints>
+                                                </view>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-em-Fbd" customClass="MGSetCardView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" type="user" id="kej-yI-aCU"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="8qK-em-Fbd" firstAttribute="leading" secondItem="gpT-t4-Fa6" secondAttribute="leading" constant="88" id="Cbd-QX-ZcM"/>
                                             <constraint firstItem="c4p-MC-si9" firstAttribute="bottom" secondItem="gpT-t4-Fa6" secondAttribute="bottom" type="default" id="Ct1-wc-jUZ"/>
-                                            <constraint firstItem="c4p-MC-si9" firstAttribute="centerX" secondItem="gpT-t4-Fa6" secondAttribute="centerX" type="default" id="LR9-Jg-HgY"/>
+                                            <constraint firstAttribute="centerX" secondItem="c4p-MC-si9" secondAttribute="centerX" type="user" id="NxT-lK-qiD"/>
                                             <constraint firstItem="8qK-em-Fbd" firstAttribute="top" secondItem="gpT-t4-Fa6" secondAttribute="top" type="default" id="Wtk-u0-Mkc"/>
-                                            <constraint firstItem="8qK-em-Fbd" firstAttribute="trailing" secondItem="gpT-t4-Fa6" secondAttribute="trailing" type="default" id="Xfd-h8-6E1"/>
-                                            <constraint firstItem="gua-Xd-oLI" firstAttribute="leading" secondItem="gpT-t4-Fa6" secondAttribute="leading" type="default" id="col-vt-lIT"/>
+                                            <constraint firstItem="8qK-em-Fbd" firstAttribute="trailing" secondItem="gpT-t4-Fa6" secondAttribute="trailing" type="user" id="Xfd-h8-6E1"/>
+                                            <constraint firstItem="gua-Xd-oLI" firstAttribute="leading" secondItem="gpT-t4-Fa6" secondAttribute="leading" type="user" id="col-vt-lIT"/>
                                             <constraint firstItem="c4p-MC-si9" firstAttribute="top" secondItem="gpT-t4-Fa6" secondAttribute="top" type="default" id="cvm-Av-uzH"/>
                                             <constraint firstItem="gua-Xd-oLI" firstAttribute="bottom" secondItem="gpT-t4-Fa6" secondAttribute="bottom" type="default" id="huh-KR-aHd"/>
-                                            <constraint firstItem="c4p-MC-si9" firstAttribute="leading" secondItem="gpT-t4-Fa6" secondAttribute="leading" constant="44" id="l5l-to-94P"/>
                                             <constraint firstItem="gua-Xd-oLI" firstAttribute="top" secondItem="gpT-t4-Fa6" secondAttribute="top" type="default" id="pcQ-xG-642"/>
-                                            <constraint firstAttribute="trailing" secondItem="gua-Xd-oLI" secondAttribute="trailing" constant="88" id="t91-bk-Kar"/>
                                             <constraint firstItem="8qK-em-Fbd" firstAttribute="bottom" secondItem="gpT-t4-Fa6" secondAttribute="bottom" type="default" id="xFh-4l-k2h"/>
                                         </constraints>
                                         <size key="customSize" width="128" height="30"/>
                                         <connections>
-                                            <outlet property="thirdCardView" destination="8qK-em-Fbd" id="huH-D7-WjC"/>
+                                            <outlet property="thirdCardView" destination="c4p-MC-si9" id="A5t-ld-8m2"/>
                                             <outletCollection property="twoCardViews" destination="gua-Xd-oLI" id="YTx-Nw-PPd"/>
-                                            <outletCollection property="twoCardViews" destination="c4p-MC-si9" id="HMV-rx-mUX"/>
+                                            <outletCollection property="twoCardViews" destination="8qK-em-Fbd" id="xNi-Hv-XCd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -325,7 +394,7 @@
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="dbL-bC-avf" id="sME-GS-X4q"/>
-                                    <outlet property="delegate" destination="Pt0-mU-5by" id="oJ3-kD-T0l"/>
+                                    <outlet property="delegate" destination="dbL-bC-avf" id="XJK-ff-ilB"/>
                                     <outletCollection property="gestureRecognizers" destination="vKM-0T-PiY" appends="YES" id="PYg-Xl-SNu"/>
                                 </connections>
                             </collectionView>

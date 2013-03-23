@@ -16,13 +16,15 @@
 
 @property (strong,nonatomic) MGGame* game;
 
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 - (void) updateUI;
 - (IBAction)deal;
 
-_abstract @property (nonatomic) NSUInteger startingCardCount;
 _abstract -(void)updateCardView:(MGCardView *)cardView usingCard:(MGCard *)card;
 _abstract -(BOOL)cell:(UICollectionViewCell*)cell needsUpdateFromCard:(MGCard*)card;
 _abstract -(void)updateMoveDisplayUsingMove:(MGGameMove*)move;
 _abstract -(void)updateSelectedDisplayUsingCards:(NSArray*)cards;
+_abstract -(CGSize)sizeForCardCell;
+_abstract -(CGSize)sizeForMatchCellWithCards:(NSUInteger)numCards;
 
 @end

@@ -37,11 +37,13 @@ typedef enum {
 -(NSInteger) numMoves;
 -(MGGameMove*) moveNumber:(NSInteger) moveNumber;
 
-@property (strong,nonatomic,readonly) NSArray* pastMatches;
+@property (nonatomic) BOOL lastFlipWasMatch;
+@property (strong,nonatomic) NSMutableArray* pastMatches;
 
 -(id) initWithCardCount:(NSUInteger)count usingDeck:(MGDeck*)deck;
 -(NSString*) typeString;
 
+_abstract @property (nonatomic,readonly) NSUInteger cardsToDeal;
 _abstract @property (nonatomic,readonly) NSUInteger maxCardsUp;
 _abstract @property (nonatomic,readonly) NSUInteger flipCost;
 _abstract @property (nonatomic,readonly) NSUInteger matchBonus;

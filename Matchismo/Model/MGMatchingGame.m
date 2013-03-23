@@ -9,9 +9,18 @@
 #import "MGMatchingGame.h"
 #import "MGGame_Protected.h"
 #import "MGCard.h"
-#import "MGDeck.h"
+#import "MGPlayingCardDeck.h"
 
 @implementation MGMatchingGame
+
+-(MGDeck *)deck {
+	if (!super.deck) super.deck = [MGPlayingCardDeck new];
+	return super.deck;
+}
+
+-(NSUInteger)cardsToDeal {
+	return 20;
+}
 
 -(NSString *)typeString {
 	return [NSString stringWithFormat:@"%d-Card Match",self.maxCardsUp];

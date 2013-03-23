@@ -9,9 +9,6 @@
 #import "MGGame_Protected.h"
 
 @interface MGGame()
-
-@property (strong,nonatomic) NSMutableArray* allMatches;
-
 @end
 
 @implementation MGGame
@@ -19,10 +16,9 @@
 //INITIALIZERS
 
 //Designated initializer
--(id)initWithCardCount:(NSUInteger)count usingDeck:(MGDeck *)deck {
+-(id)init {
 	if (self = [super init]) {
-		_deck = deck;
-		for (int i=0; i<count; i++)
+		for (int i=0; i<self.cardsToDeal; i++)
 			[self.cards addObject:[self.deck drawRandomCard]];
 		self.result = [[MGGameResult alloc] initWithGameType:self.typeString];
 	}
@@ -93,18 +89,18 @@
 	return self.pastMoves[moveNumber];
 }
 
--(NSArray *)pastMatches {
-	return self.allMatches.copy;
-}
-
--(NSMutableArray *)allMatches {
-	if (!_allMatches) _allMatches = [NSMutableArray new];
-	return _allMatches;
+-(NSMutableArray *)pastMatches {
+	if (!_pastMatches) _pastMatches = [NSMutableArray new];
+	return _pastMatches;
 }
 
 -(void)flipCardAtIndex:(NSUInteger)index {
 	MGCard* cardToFlip = self.cards[index];
+	//Every *flip*, whether it's up or down, resets this flag
+	self.lastFlipWasMatch = NO;
 	
+	//This check is no longer needed given the current controller implementation
+	//but it seems like a good idea
 	if (cardToFlip.unplayable)
 		return;
 	
@@ -126,20 +122,22 @@
 	if (otherCards.count == self.maxCardsUp - 1) {
 		NSInteger score = [cardToFlip match:otherCards];
 		if (score) {
+			//Matched, need to expose that to our controller
+			self.lastFlipWasMatch = YES;
 			cardToFlip.unplayable = YES;
 			for (MGCard* card in otherCards)
 				card.unplayable = YES;
 			
 			self.score += score * self.matchBonus;
 			//Add this move to the past-matches array
-			[self.allMatches addObject:[otherCards arrayByAddingObject:cardToFlip]];
+			[self.pastMatches addObject:[otherCards arrayByAddingObject:cardToFlip]];
 		} //end if matched
 		else {
 			for (MGCard* card in otherCards)
 				card.faceUp = NO;
 			self.score -= self.mismatchPenalty;
 		} //end else did not match
-		pastMove = [[MGGameMove alloc] initWithCards:allCards score:score];
+		pastMove = [[MGGameMove alloc] initWithCards:allCards score:score*self.matchBonus];
 	} // end if should match
 	else {
 		pastMove = [[MGGameMove alloc] initWithCards:@[cardToFlip] score:0];
