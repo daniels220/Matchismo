@@ -17,7 +17,6 @@
 
 @interface MGCardGameViewController ()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *cardCollection;
 @property (weak, nonatomic) IBOutlet UILabel *logLabel;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 - (IBAction)moveInHistory:(UISlider *)sender;
@@ -43,7 +42,8 @@
 #pragma mark IBActions
 
 - (IBAction)moveInHistory:(UISlider *)sender {
-	[self updateMoveDisplayUsingMove:[self.game moveNumber:(NSInteger)sender.value]];
+	sender.value = round(sender.value);
+	[self updateMoveDisplayUsingMove:[self.game moveNumber:sender.value]];
 }
 
 - (IBAction)flipCard:(UITapGestureRecognizer *)sender {
@@ -146,8 +146,9 @@
 	
 	//Set the range for the history slider
 	self.historySlider.enabled = self.game.numMoves > 1;
-	self.historySlider.maximumValue = self.game.numMoves - 0.01;
-	self.historySlider.value = self.game.numMoves - 0.01;
+	self.historySlider.minimumValue = 0;
+	self.historySlider.maximumValue = self.game.numMoves - 1;
+	self.historySlider.value = self.game.numMoves - 1;
 
 	[self updatePreviousMatches];
 	[self updateAllCards];

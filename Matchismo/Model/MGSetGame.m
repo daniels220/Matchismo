@@ -45,4 +45,17 @@
 	return 3;
 }
 
+-(NSArray *)findSet {
+	NSArray* playable = [[self faceDownCards] arrayByAddingObjectsFromArray:[self playableFaceUpCards]];
+	for (MGCard* card0 in playable)
+		for (MGCard* card1 in playable)
+			for (MGCard* card2 in playable) {
+				if (card0 == card1 || card1 == card2 || card0 == card2)
+					continue;
+				if ([card0 match:@[card1,card2]])
+					return @[card0,card1,card2];
+			}
+	return nil;
+}
+
 @end

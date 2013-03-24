@@ -12,12 +12,7 @@
 
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
-	
-	if (self.selected) {
-		[[UIColor colorWithWhite:0.8 alpha:1] setFill];
-		UIRectFill(self.bounds);
-	}
-	
+		
 	[self.strokeColor setStroke];
 	[self.backgroundPattern setFill];
 	for (int i=0; i<self.number; i++) {

@@ -16,6 +16,7 @@
 
 @property (strong,nonatomic) MGGame* game;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *cardCollection;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 - (void) updateUI;
 - (IBAction)deal;

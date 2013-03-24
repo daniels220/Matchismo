@@ -11,5 +11,6 @@
 @interface MGSetGame : MGGame
 
 @property (nonatomic,readwrite) NSInteger score;
+-(NSArray*)findSet;
 
 @end

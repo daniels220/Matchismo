@@ -12,5 +12,6 @@
 
 @property (nonatomic) BOOL selected;
 @property (nonatomic) BOOL faceUp;
+@property (nonatomic) BOOL starred;
 
 @end

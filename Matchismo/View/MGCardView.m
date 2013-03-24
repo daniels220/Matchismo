@@ -18,11 +18,18 @@
 	UIBezierPath* roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.bounds.size.width*CORNER_FRACTION];
 	[roundedRect addClip];
 	
-	[[UIColor whiteColor] setFill];
+	UIColor* backgroundColor = (self.selected) ? [UIColor colorWithWhite:0.8 alpha:1] : [UIColor whiteColor];
+	[backgroundColor setFill];
 	UIRectFill(self.bounds);
 	
 	[[UIColor blackColor] setStroke];
 	[roundedRect stroke];
+	
+	if (self.starred) {
+		CGFloat fontSize = self.bounds.size.width * CORNER_FRACTION;
+		NSAttributedString* str = [[NSAttributedString alloc] initWithString:@"★" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontSize], NSForegroundColorAttributeName: [UIColor blueColor]}];
+		[str drawAtPoint:CGPointMake(fontSize/2, fontSize/2)];
+	}
 }
 
 -(void)setFaceUp:(BOOL)faceUp {
@@ -32,6 +39,11 @@
 
 -(void)setSelected:(BOOL)selected {
 	_selected = selected;
+	[self setNeedsDisplay];
+}
+
+-(void)setStarred:(BOOL)starred {
+	_starred = starred;
 	[self setNeedsDisplay];
 }
 
