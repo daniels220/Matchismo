@@ -33,6 +33,9 @@
 
 @end
 
+#define CARDS_SECTION 0
+#define MATCHES_SECTION 1
+
 @implementation MGCardGameViewController
 
 - (void)viewDidLoad {
@@ -48,7 +51,7 @@
 
 - (IBAction)flipCard:(UITapGestureRecognizer *)sender {
 	NSIndexPath* path = [self.cardCollection indexPathForItemAtPoint:[sender locationInView:self.cardCollection]];
-	if (path) {
+	if (path && path.section == CARDS_SECTION) {
 		[self.game flipCardAtIndex:path.item];
 		[self updateUI];
 	}
@@ -69,8 +72,6 @@
 	return 2;
 }
 
-#define CARDS_SECTION 0
-#define MATCHES_SECTION 1
 -(NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
 	if (section == CARDS_SECTION)
 		return self.game.numCards;
@@ -221,6 +222,7 @@
 	cardView.hidden = NO;
 	cardView.faceUp = YES;
 	cardView.selected = NO;
+	cardView.starred = NO;
 	cardView.alpha = 1.0;
 }
 

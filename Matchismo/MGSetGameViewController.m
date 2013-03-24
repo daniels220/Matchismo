@@ -128,6 +128,7 @@ typedef enum HintState {
 
 -(void)updateHintedCards {
 	for (MGCardCollectionViewCell* cell in self.cardCollection.visibleCells) {
+		if (![cell isKindOfClass:MGCardCollectionViewCell.class]) continue;
 		MGCard* card = [self.game cardAtIndex:[self.cardCollection indexPathForCell:cell].item];
 		cell.cardView.starred = [self shouldStarCard:card];
 	}
