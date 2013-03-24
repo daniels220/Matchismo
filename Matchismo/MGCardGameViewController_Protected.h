@@ -27,5 +27,7 @@ _abstract -(void)updateMoveDisplayUsingMove:(MGGameMove*)move;
 _abstract -(void)updateSelectedDisplayUsingCards:(NSArray*)cards;
 _abstract -(CGSize)sizeForCardCell;
 _abstract -(CGSize)sizeForMatchCellWithCards:(NSUInteger)numCards;
+_abstract @property (strong,nonatomic,readonly) NSString* matchString;
+_abstract @property (strong,nonatomic,readonly) NSString* noMatchString;
 
 @end

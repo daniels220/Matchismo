@@ -205,8 +205,8 @@
 			self.pickMoveDisplayCard.hidden = YES;
 				
 		self.matchMoveLabel.text = move.score > 0 ?
-		[NSString stringWithFormat:@"Match! %d point%c",move.score,move.score == 1 ? ' ':'s'] :
-		[NSString stringWithFormat:@"Don't match! -%d point%c",self.game.mismatchPenalty,move.score == 1 ? ' ':'s'];
+		[NSString stringWithFormat:@"%@ %d point%c",self.matchString,move.score,move.score == 1 ? ' ':'s'] :
+		[NSString stringWithFormat:@"%@ -%d point%c",self.noMatchString,self.game.mismatchPenalty,move.score == 1 ? ' ':'s'];
 		
 		self.pickMoveLabel.hidden = YES;
 		self.matchMoveLabel.hidden = NO;

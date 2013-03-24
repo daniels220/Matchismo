@@ -60,6 +60,14 @@ typedef enum HintState {
 	return CGSizeMake(numCards*40+(numCards-1)*4, 30);
 }
 
+-(NSString *)matchString {
+	return @"Set!";
+}
+
+-(NSString *)noMatchString {
+	return @"Not a Set!";
+}
+
 -(MGSetGame *)game {
 	if (!super.game) super.game = [MGSetGame new];
 	return super.game;

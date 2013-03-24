@@ -53,6 +53,14 @@
 	return CGSizeMake(numCards*30+(numCards-1)*4, 40);
 }
 
+-(NSString *)matchString {
+	return @"Match!";
+}
+
+-(NSString *)noMatchString {
+	return @"Don't Match!";
+}
+
 -(MGMatchingGame *)game {
 	if (!super.game) super.game = [MGMatchingGame new];
 	super.game.maxCardsUp = self.modeSwitch.selectedSegmentIndex == 0 ? 2 : 3;
