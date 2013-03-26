@@ -56,9 +56,9 @@
 	};
 	for (int i=0; i<4; i++) {
 		//XCode thinks this won't work, but it will, I know what selectors I'm using
-		NSInteger propSelf = [self performSelector:props[i]];
-		NSInteger prop1 = [other1 performSelector:props[i]];
-		NSInteger prop2 = [other2 performSelector:props[i]];
+		NSInteger propSelf = (NSInteger) [self performSelector:props[i]];
+		NSInteger prop1 = (NSInteger) [other1 performSelector:props[i]];
+		NSInteger prop2 = (NSInteger) [other2 performSelector:props[i]];
 		if ((propSelf == prop1 && propSelf == prop2) ||
 				(propSelf != prop1 && propSelf != prop2 && prop1 != prop2))
 			; //We're good

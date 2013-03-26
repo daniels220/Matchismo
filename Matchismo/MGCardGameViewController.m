@@ -246,7 +246,7 @@
 
 -(void)updateAllCards {
 	//Update state of cards
-	for (UICollectionViewCell* cell in self.cardCollection.visibleCells) {
+	for (MGCardCollectionViewCell* cell in self.cardCollection.visibleCells) {
 		if (![cell isKindOfClass:MGCardCollectionViewCell.class])
 			continue;
 		NSIndexPath* path = [self.cardCollection indexPathForCell:cell];

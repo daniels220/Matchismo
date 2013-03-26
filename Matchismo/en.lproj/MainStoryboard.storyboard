@@ -382,11 +382,11 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Matches:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqB-Y1-p5q">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="backgroundColor" red="0.29411764705882354" green="0.15686274509803921" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="wqB-Y1-p5q" firstAttribute="centerX" secondItem="Vfm-VN-FjO" secondAttribute="centerX" type="default" id="uvo-G8-cCc"/>
                                         <constraint firstItem="wqB-Y1-p5q" firstAttribute="top" secondItem="Vfm-VN-FjO" secondAttribute="top" constant="4" id="xb2-GW-KvT"/>
@@ -552,13 +552,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="0Hh-Pr-97B" firstAttribute="top" secondItem="SLO-Ut-RJd" secondAttribute="top" constant="-1" id="5EG-Bl-al1"/>
                                     <constraint firstItem="g8I-xF-8Qo" firstAttribute="leading" secondItem="0Hh-Pr-97B" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="JiG-MU-rFe"/>
                                     <constraint firstAttribute="height" constant="43" type="user" id="VY0-Z7-s6B"/>
                                     <constraint firstAttribute="trailing" secondItem="3gJ-jL-gRe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZTr-6h-lJt"/>
-                                    <constraint firstItem="3gJ-jL-gRe" firstAttribute="baseline" secondItem="0Hh-Pr-97B" secondAttribute="baseline" type="default" id="aH5-23-jfN"/>
+                                    <constraint firstItem="0Hh-Pr-97B" firstAttribute="top" secondItem="SLO-Ut-RJd" secondAttribute="top" type="default" id="arb-Wa-ytr"/>
+                                    <constraint firstItem="g8I-xF-8Qo" firstAttribute="top" secondItem="SLO-Ut-RJd" secondAttribute="top" type="default" id="gxJ-7Z-hu7"/>
                                     <constraint firstItem="0Hh-Pr-97B" firstAttribute="leading" secondItem="SLO-Ut-RJd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kmv-by-bqe"/>
-                                    <constraint firstItem="g8I-xF-8Qo" firstAttribute="top" secondItem="SLO-Ut-RJd" secondAttribute="top" type="default" id="kyk-8b-056"/>
+                                    <constraint firstItem="3gJ-jL-gRe" firstAttribute="top" secondItem="SLO-Ut-RJd" secondAttribute="top" type="default" id="w0b-Wh-uv8"/>
                                 </constraints>
                             </view>
                         </subviews>
